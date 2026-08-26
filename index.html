@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="aPaste 是一款 macOS 剪贴板管理器：快速搜索剪贴板历史，用 Pinboard 保存常用内容，全键盘操作，机密与临时内容默认不记录。">
+  <meta name="author" content="Alliot Tech">
+  <meta name="application-name" content="aPaste">
+  <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b0b0d" media="(prefers-color-scheme: dark)">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="canonical" href="https://apaste-app.github.io/site/">
+  <link rel="apple-touch-icon" href="assets/apaste-logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="aPaste">
+  <meta property="og:url" content="https://apaste-app.github.io/site/">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="aPaste — macOS 剪贴板历史管理器">
+  <meta property="og:description" content="快速搜索剪贴板历史，用 Pinboard 保存常用内容，按 Return 直接粘贴到当前 App。">
+  <meta property="og:image" content="https://apaste-app.github.io/site/assets/hero-dark.webp">
+  <meta property="og:image:alt" content="aPaste 在 MacBook 上运行的剪贴板管理器界面">
+  <meta property="og:image:width" content="1920">
+  <meta property="og:image:height" content="1264">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="aPaste — macOS 剪贴板历史管理器">
+  <meta name="twitter:description" content="快速搜索剪贴板历史，用 Pinboard 保存常用内容，按 Return 直接粘贴到当前 App。">
+  <meta name="twitter:image" content="https://apaste-app.github.io/site/assets/hero-dark.webp">
+  <meta name="twitter:image:alt" content="aPaste 在 MacBook 上运行的剪贴板管理器界面">
+  <title>aPaste — macOS 剪贴板历史管理器</title>
+  <link rel="icon" href="assets/apaste-logo.png" type="image/png">
+  <link rel="stylesheet" href="styles.css?v=20260826-1">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "aPaste",
+      "alternateName": "aPaste 剪贴板管理器",
+      "applicationCategory": "UtilitiesApplication",
+      "applicationSubCategory": "Clipboard manager",
+      "operatingSystem": "macOS 15 或更高版本",
+      "inLanguage": "zh-CN",
+      "description": "为 macOS 设计的键盘优先剪贴板管理器：可搜索的剪贴板历史、Pinboard、aPaste Stack、富预览、捕获规则、隐私控制，以及可选的文件夹同步。",
+      "image": "https://apaste-app.github.io/site/assets/hero-dark.webp",
+      "url": "https://apaste-app.github.io/site/",
+      "downloadUrl": "https://github.com/AlliotTech/aPaste/releases/latest",
+      "codeRepository": "https://github.com/AlliotTech/aPaste",
+      "sameAs": ["https://github.com/AlliotTech/aPaste"],
+      "author": {
+        "@type": "Organization",
+        "name": "Alliot Tech",
+        "url": "https://github.com/AlliotTech"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "可搜索的剪贴板历史（文本、链接、图片、文件）",
+        "Pinboard 保存常用内容",
+        "aPaste Stack 连续收集后依次粘贴",
+        "富文本、颜色、链接、图片与文件预览",
+        "捕获规则：自动忽略或固定新内容",
+        "粘贴前的 9 个快捷处理动作",
+        "机密与临时内容默认不记录",
+        "可选的文件夹同步与端到端加密"
+      ]
+    }
+  </script>
+  <script>
+    (function () {
+      var stored = null;
+      try { stored = localStorage.getItem("apaste-theme"); } catch (error) { stored = null; }
+      document.documentElement.dataset.theme = stored ||
+        (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skipLink">跳到主要内容</a>
+
+  <header class="site-header" id="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="#top" aria-label="aPaste home">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="assets/apaste-logo.png" alt="" width="34" height="34">
+        </span>
+        <span>aPaste</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="主导航">
+        <a href="#features" data-i18n="navFeatures">功能</a>
+        <a href="#showcase" data-i18n="navShowcase">预览</a>
+        <a href="#privacy" data-i18n="navPrivacy">隐私</a>
+        <a href="#install" data-i18n="navInstall">安装</a>
+        <a href="#faq" data-i18n="navFaq">常见问题</a>
+        <a href="#download" data-i18n="navDownload">下载</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-button language-toggle" id="language-toggle" type="button" aria-label="Switch to English">EN</button>
+        <button class="icon-button theme-toggle" id="theme-toggle" type="button" aria-label="切换外观">
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+        </button>
+        <a class="nav-download" href="https://github.com/AlliotTech/aPaste/releases/latest" data-i18n="navGet">下载 aPaste</a>
+        <button class="icon-button nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="打开菜单">
+          <svg class="menu-open-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="menu-close-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav" id="mobile-nav" hidden>
+      <nav aria-label="移动端导航">
+        <a href="#features" data-i18n="navFeatures">功能</a>
+        <a href="#showcase" data-i18n="navShowcase">预览</a>
+        <a href="#privacy" data-i18n="navPrivacy">隐私</a>
+        <a href="#install" data-i18n="navInstall">安装</a>
+        <a href="#faq" data-i18n="navFaq">常见问题</a>
+        <a href="#download" data-i18n="navDownload">下载</a>
+      </nav>
+      <a class="button button-primary mobile-nav-cta" href="https://github.com/AlliotTech/aPaste/releases/latest">
+        <span data-i18n="downloadLatest">下载 aPaste</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-orb hero-orb-one" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-two" aria-hidden="true"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+
+      <div class="container hero-content reveal">
+        <div class="eyebrow">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span data-i18n="heroEyebrow">aPaste for macOS 15+</span>
+        </div>
+        <h1>
+          <span data-i18n="heroTitleLead">剪贴板历史，</span>
+          <span class="gradient-text" data-i18n="heroTitleAccent">一搜即得。</span>
+        </h1>
+        <p class="hero-copy" data-i18n="heroCopy">按 ⌃` 呼出面板，输入关键词就能搜到之前复制过的内容。常用内容存进 Pinboard，选中后按 Return 直接粘贴回当前 App。</p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://github.com/AlliotTech/aPaste/releases/latest">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14"/></svg>
+            <span data-i18n="downloadLatest">下载 aPaste</span>
+          </a>
+          <a class="button button-secondary" href="https://github.com/AlliotTech/aPaste" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3.3-.4 6.8-1.6 6.8-7A5.4 5.4 0 0 0 19.4 4 5 5 0 0 0 19.3.5S18.2.1 15 1.8a13.4 13.4 0 0 0-7 0C4.8.1 3.7.5 3.7.5A5 5 0 0 0 3.6 4a5.4 5.4 0 0 0-1.4 3.7c0 5.4 3.5 6.6 6.8 7A4.8 4.8 0 0 0 8 18v4"/><path d="M8 19c-3 .9-3-1.5-4-2"/></svg>
+            <span>GitHub</span>
+          </a>
+        </div>
+
+        <div class="hero-meta" aria-label="Product highlights">
+          <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="heroMetaLocal">数据保存在本机</span></span>
+          <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="heroMetaAccount">无需账号</span></span>
+          <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="heroMetaArch">Apple Silicon / Intel 分别构建</span></span>
+        </div>
+      </div>
+
+      <div class="container hero-visual reveal reveal-late">
+        <div class="hero-shortcut">
+          <span data-i18n="openWith">按</span>
+          <kbd>⌃</kbd><span aria-hidden="true">+</span><kbd class="kbd-tick" data-i18n-title="backtickName" title="反引号（Esc 下方那个键）">`</kbd>
+          <span data-i18n="openInstantly">打开 aPaste</span>
+        </div>
+        <div class="product-stage">
+          <div class="stage-glow" aria-hidden="true"></div>
+          <img src="assets/hero-dark.webp" width="1920" height="1263" alt="aPaste 在 MacBook 上运行的剪贴板管理器界面" fetchpriority="high">
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="aPaste 特性">
+      <div class="container trust-grid reveal">
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M8 9h8M8 13h5"/></svg>
+          <div><strong data-i18n="trustKeyboardTitle">全键盘操作</strong><span data-i18n="trustKeyboardCopy">打开、搜索、选择、粘贴，全程不碰鼠标</span></div>
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+          <div><strong data-i18n="trustPrivacyTitle">隐私默认开启</strong><span data-i18n="trustPrivacyCopy">机密与临时内容默认不记录</span></div>
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h6l2 2h10v10H3Z"/><path d="M3 7V5h7l2 2"/></svg>
+          <div><strong data-i18n="trustSyncTitle">文件夹同步</strong><span data-i18n="trustSyncCopy">任意共享文件夹，加密可选</span></div>
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg>
+          <div><strong data-i18n="trustNativeTitle">菜单栏 App</strong><span data-i18n="trustNativeCopy">没有 Dock 图标，图标也能隐藏</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section features-section" id="features">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker" data-i18n="featuresKicker">核心功能</span>
+          <h2 data-i18n="featuresTitle">搜索历史。保存常用。</h2>
+          <p data-i18n="featuresCopy">剪贴板历史以可搜索的卡片呈现，常用内容单独放在 Pinboard；需要连续粘贴多条时用 aPaste Stack，粘贴前还能顺手把内容处理好。</p>
+        </div>
+
+        <div class="bento-grid">
+          <article class="bento-card bento-wide search-card reveal">
+            <div class="card-copy">
+              <span class="feature-icon feature-icon-blue" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></span>
+              <h3 data-i18n="featureSearchTitle">输入即可搜索。</h3>
+              <p data-i18n="featureSearchCopy">按内容类型（文本、链接、图片、文件）、日期或来源 App 筛选；开启图片文字识别后，图里的文字也能被搜到。方向键选择，Return 粘贴。</p>
+            </div>
+            <div class="panel-visual" aria-hidden="true">
+              <div class="panel-search-pill"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span data-i18n="searchPillQuery">设计规范</span><kbd>⌘ F</kbd></div>
+              <img id="panel-image" src="assets/panel-cards-dark.webp" data-src-dark="assets/panel-cards-dark.webp" data-src-light="assets/panel-cards-light.webp" width="1800" height="324" alt="" loading="lazy">
+            </div>
+          </article>
+
+          <article class="bento-card pinboard-card reveal">
+            <div class="card-copy">
+              <span class="feature-icon feature-icon-violet" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4h10v16l-5-3-5 3Z"/></svg></span>
+              <h3 data-i18n="featurePinTitle">常用内容，存进 Pinboard。</h3>
+              <p data-i18n="featurePinCopy">代码片段、地址、回复模板放进彩色 Pinboard，⌘← / ⌘→ 切换。清理历史时 Pinboard 不受影响。</p>
+            </div>
+            <div class="pinboard-stack" aria-hidden="true">
+              <div class="pin-card pin-orange"><span data-i18n="pinTagApi">接口</span><strong>Authorization</strong><small data-i18n="pinNoteToken">Bearer ••••••••</small></div>
+              <div class="pin-card pin-blue"><span data-i18n="pinTagSupport">客服</span><strong data-i18n="pinTitleReply">感谢反馈，已收到</strong><small data-i18n="pinNoteTemplate">回复模板</small></div>
+              <div class="pin-card pin-pink"><span data-i18n="pinTagBrand">品牌</span><strong>#6C5CE7</strong><small data-i18n="pinNoteColor">主色紫</small></div>
+            </div>
+          </article>
+
+          <article class="bento-card stack-card reveal">
+            <div class="card-copy">
+              <span class="feature-icon feature-icon-orange" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="6" rx="2"/><rect x="4" y="14" width="16" height="6" rx="2"/></svg></span>
+              <h3 data-i18n="featureStackTitle">aPaste Stack：攒一批，再依次粘贴。</h3>
+              <p data-i18n="featureStackCopy">⌘⇧C 打开 Stack，连续复制多条内容，然后按顺序一条条粘贴出去，整理表格和填表时特别省事。</p>
+            </div>
+            <div class="stack-visual" aria-hidden="true">
+              <div class="stack-chip"><em>1</em><strong data-i18n="stackItemName">张三</strong></div>
+              <div class="stack-chip"><em>2</em><strong>13800000000</strong></div>
+              <div class="stack-chip"><em>3</em><strong>zhangsan@example.com</strong></div>
+              <div class="stack-hint"><kbd>⌘</kbd><kbd>⇧</kbd><kbd>C</kbd></div>
+            </div>
+          </article>
+
+          <article class="bento-card preview-card reveal">
+            <div class="card-copy">
+              <span class="feature-icon feature-icon-cyan" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3Z"/><path d="m3 15 5-5 4 4 3-3 6 6"/><circle cx="16.5" cy="8.5" r="1.5"/></svg></span>
+              <h3 data-i18n="featurePreviewTitle">每种内容，都有合适的预览。</h3>
+              <p data-i18n="featurePreviewCopy">文本保留富文本格式并识别其中的颜色值，链接可抓取网页标题和图片（这项联网抓取可以关掉），图片和文件各有对应卡片。</p>
+            </div>
+            <div class="preview-window" aria-hidden="true">
+              <img src="assets/showcase-color-dark.webp" width="1800" height="585" alt="" loading="lazy">
+            </div>
+          </article>
+
+          <article class="bento-card rules-card reveal">
+            <div class="card-copy">
+              <span class="feature-icon feature-icon-green" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/><circle cx="8" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="12" cy="18" r="2"/></svg></span>
+              <h3 data-i18n="featureRulesTitle">让规则自动整理。</h3>
+              <p data-i18n="featureRulesCopy">按内容类型、来源 App、文本（支持正则）、网址主机、文件扩展名或体积区间，自动忽略或固定到指定 Pinboard。规则可以先在已有历史上试跑一遍。</p>
+            </div>
+            <div class="rule-builder" aria-hidden="true">
+              <div class="rule-row"><span class="rule-label">IF</span><span class="rule-chip" data-i18n="ruleChipApp">来源 App</span><span class="rule-value">Xcode</span></div>
+              <div class="rule-row"><span class="rule-label">AND</span><span class="rule-chip" data-i18n="ruleChipText">文本包含</span><span class="rule-value">TODO</span></div>
+              <div class="rule-arrow" aria-hidden="true">↓</div>
+              <div class="rule-result"><span class="rule-pin"></span><span data-i18n="ruleResultPin">固定到</span><strong data-i18n="ruleResultBoard">开发</strong></div>
+            </div>
+          </article>
+
+          <article class="bento-card actions-card reveal">
+            <div class="card-copy">
+              <span class="feature-icon feature-icon-pink" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6Z"/><path d="m19 15 .8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8Z"/></svg></span>
+              <h3 data-i18n="featureActionsTitle">粘贴前，先把内容处理好。</h3>
+              <p data-i18n="featureActionsCopy">卡片右键菜单里内置 9 个快捷处理动作，处理结果直接复制到剪贴板。</p>
+            </div>
+            <div class="action-menu" aria-hidden="true">
+              <div><span>{ }</span><strong data-i18n="actionPrettyJson">美化 JSON</strong></div>
+              <div><span>{ }</span><strong data-i18n="actionMinifyJson">压缩 JSON</strong></div>
+              <div><span>↗</span><strong data-i18n="actionTracking">移除跟踪参数</strong></div>
+              <div><span>MD</span><strong data-i18n="actionMarkdown">复制为 Markdown 链接</strong></div>
+              <div><span>Aa</span><strong data-i18n="actionRecognized">复制识别文字</strong></div>
+              <div><span>⇥</span><strong data-i18n="actionTransform">大小写 / 单行 / 去空白</strong></div>
+            </div>
+          </article>
+
+          <article class="bento-card layout-card reveal">
+            <div class="card-copy">
+              <span class="feature-icon feature-icon-blue" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M10 4v16"/></svg></span>
+              <h3 data-i18n="featureLayoutTitle">两种面板形态，按习惯选。</h3>
+              <p data-i18n="featureLayoutCopy">底部面板贴着屏幕下沿横向浏览；Command Center 是可调整大小的窗口，左边列表右边详情，适合长内容。</p>
+            </div>
+            <div class="layout-visual" aria-hidden="true">
+              <div class="layout-mock layout-mock-bottom"><span></span><span></span><span></span><span></span><em data-i18n="layoutBottomName">底部面板</em></div>
+              <div class="layout-mock layout-mock-center"><i></i><b></b><em data-i18n="layoutCenterName">Command Center</em></div>
+            </div>
+          </article>
+
+          <article class="bento-card bento-wide privacy-card reveal">
+            <div class="privacy-copy card-copy">
+              <span class="feature-icon feature-icon-cyan" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="M9 12h6M12 9v6"/></svg></span>
+              <h3 data-i18n="featurePrivacyTitle">机密与临时内容，默认不记录。</h3>
+              <p data-i18n="featurePrivacyCopy">密码管理器等标记为机密的内容、以及临时剪贴板内容，开箱即被跳过；还可以按 App 完全停止记录。截图 / 录屏隐藏是一个可选开关，默认关闭，需要时自行打开。</p>
+              <a href="#privacy" class="text-link"><span data-i18n="learnPrivacy">查看隐私与同步</span><span aria-hidden="true">→</span></a>
+            </div>
+            <div class="privacy-console" aria-hidden="true">
+              <div class="console-top"><span></span><span></span><span></span><strong data-i18n="consoleTitle">隐私</strong></div>
+              <div class="console-row"><span><b data-i18n="consoleConfidentialTitle">机密内容</b><small data-i18n="consoleConfidentialCopy">跳过密码管理器与标记为机密的内容</small></span><i class="toggle-on"></i></div>
+              <div class="console-row"><span><b data-i18n="consoleTransientTitle">临时内容</b><small data-i18n="consoleTransientCopy">跳过标记为临时的剪贴板内容</small></span><i class="toggle-on"></i></div>
+              <div class="console-row"><span><b data-i18n="consoleCaptureTitle">屏幕捕获隐藏</b><small data-i18n="consoleCaptureCopy">可选开关，默认关闭</small></span><i class="toggle-off"></i></div>
+              <div class="console-note"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg><span data-i18n="consoleNote">全部保存在这台 Mac 上</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section showcase-section" id="showcase">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <span class="section-kicker" data-i18n="showcaseKicker">界面预览</span>
+          <h2 data-i18n="showcaseTitle">每种内容，都有合适的呈现方式。</h2>
+          <p data-i18n="showcaseCopy">在面板里快速扫一眼，需要更多上下文时再打开完整预览。</p>
+        </div>
+
+        <div class="showcase reveal">
+          <div class="showcase-tabs" role="tablist" aria-label="选择预览">
+            <button class="showcase-tab active" type="button" role="tab" id="showcase-tab-cards" aria-controls="showcase-panel" aria-selected="true" data-src="assets/showcase-cards-dark.webp" data-alt-key="showcaseAltCards" data-i18n="showcaseTabCards">内容卡片</button>
+            <button class="showcase-tab" type="button" role="tab" id="showcase-tab-link" aria-controls="showcase-panel" aria-selected="false" tabindex="-1" data-src="assets/showcase-link-dark.webp" data-alt-key="showcaseAltLink" data-i18n="showcaseTabLink">链接预览</button>
+            <button class="showcase-tab" type="button" role="tab" id="showcase-tab-color" aria-controls="showcase-panel" aria-selected="false" tabindex="-1" data-src="assets/showcase-color-dark.webp" data-alt-key="showcaseAltColor" data-i18n="showcaseTabColor">颜色预览</button>
+            <button class="showcase-tab" type="button" role="tab" id="showcase-tab-light" aria-controls="showcase-panel" aria-selected="false" tabindex="-1" data-src="assets/showcase-cards-light.webp" data-alt-key="showcaseAltLight" data-i18n="showcaseTabLight">浅色模式</button>
+          </div>
+          <div class="showcase-frame" id="showcase-panel" role="tabpanel" aria-labelledby="showcase-tab-cards" tabindex="0">
+            <div class="window-bar" aria-hidden="true"><span></span><span></span><span></span><em>aPaste</em></div>
+            <img id="showcase-image" src="assets/showcase-cards-dark.webp" width="1800" height="352" alt="aPaste 面板中的剪贴板内容卡片" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section flow-section">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <span class="section-kicker" data-i18n="flowKicker">使用方式</span>
+          <h2 data-i18n="flowTitle">从搜索到粘贴，全程使用键盘。</h2>
+        </div>
+        <div class="flow-grid">
+          <article class="flow-step reveal"><span class="step-number">01</span><div class="step-icon"><svg viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></div><h3 data-i18n="flowCopyTitle">照常复制</h3><p data-i18n="flowCopyCopy">支持的内容自动进入历史；被隐私设置或捕获规则排除的内容不会被记录。</p></article>
+          <article class="flow-step reveal"><span class="step-number">02</span><div class="step-icon"><span class="mini-keys"><kbd>⌃</kbd><b>+</b><kbd class="kbd-tick">`</kbd></span></div><h3 data-i18n="flowFindTitle">呼出并搜索</h3><p data-i18n="flowFindCopy">按快捷键打开面板，输入关键词，或用 ⌘← / ⌘→ 切到 Pinboard。</p></article>
+          <article class="flow-step reveal"><span class="step-number">03</span><div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 5-5m-5 5-5-5"/><path d="M5 21h14"/></svg></div><h3 data-i18n="flowPasteTitle">按 Return 粘贴</h3><p data-i18n="flowPasteCopy">选中内容按 Return，直接粘贴回刚才使用的 App（需要辅助功能权限）。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section privacy-section" id="privacy">
+      <div class="container privacy-layout">
+        <div class="privacy-story reveal">
+          <span class="section-kicker" data-i18n="privacyKicker">隐私与同步</span>
+          <h2 data-i18n="privacyTitle">历史保存在本机。同步由你决定。</h2>
+          <p data-i18n="privacyCopy">aPaste 不需要账号，也没有自建云服务。只有在你亲自指定一个共享文件夹之后，数据才会被写出去——把它放进 iCloud Drive、Dropbox 或 Syncthing 的同步目录，多台 Mac 就能共用同一份历史。</p>
+          <ul class="check-list">
+            <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="privacyPointOne">机密（密码管理器）与临时内容默认不记录</span></li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="privacyPointTwo">可以按 App 完全停止记录，也能临时暂停捕获</span></li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="privacyPointThree">文件夹同步可开启端到端加密（PBKDF2-SHA256 + ChaCha20-Poly1305），默认关闭</span></li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="privacyPointFour">链接预览是唯一的联网功能，可以随时关掉</span></li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="privacyPointFive">历史可按天数或条数自动清理，也能一键清空</span></li>
+          </ul>
+        </div>
+
+        <div class="sync-visual reveal" aria-hidden="true">
+          <div class="sync-orbit orbit-one"></div>
+          <div class="sync-orbit orbit-two"></div>
+          <div class="device device-mac"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span>MacBook</span></div>
+          <div class="device device-imac"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span>Mac</span></div>
+          <div class="sync-core"><svg viewBox="0 0 24 24"><path d="M3 7h6l2 2h10v10H3Z"/><path d="M8 13h8M12 9v8"/></svg><strong data-i18n="syncCoreTitle">共享文件夹</strong><small data-i18n="syncCoreNote">端到端加密可选</small></div>
+          <div class="sync-pulse pulse-one"></div>
+          <div class="sync-pulse pulse-two"></div>
+          <span class="provider provider-one">iCloud Drive</span>
+          <span class="provider provider-two">Dropbox</span>
+          <span class="provider provider-three">Syncthing</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section install-section" id="install">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <span class="section-kicker" data-i18n="installKicker">安装与权限</span>
+          <h2 data-i18n="installTitle">三步装好，两分钟搞定。</h2>
+          <p data-i18n="installCopy">aPaste 目前没有 Apple 开发者签名与公证，所以需要手动放行一次。下面每一步都说明了原因。</p>
+        </div>
+
+        <ol class="install-grid">
+          <li class="install-step reveal">
+            <span class="install-index">01</span>
+            <h3 data-i18n="installStepOneTitle">下载对应芯片的 DMG</h3>
+            <p data-i18n-html="installStepOneCopy">每个版本提供两个安装包：Apple Silicon 用 <code>-arm64</code>，Intel 用 <code>-x86_64</code>。不确定的话点左上角  →「关于本机」看芯片型号。也可以用 Homebrew，它会自动选对架构。</p>
+          </li>
+          <li class="install-step reveal">
+            <span class="install-index">02</span>
+            <h3 data-i18n="installStepTwoTitle">移除隔离标记</h3>
+            <p data-i18n="installStepTwoCopy">把 aPaste.app 拖进「应用程序」后，macOS 可能提示「已损坏，无法打开」。这不是文件损坏，而是应用只做了本地签名、没有经过 Apple 公证，Gatekeeper 会拦下来。执行下面这条命令即可放行：</p>
+            <div class="code-line">
+              <code id="quarantine-command">xattr -dr com.apple.quarantine /Applications/aPaste.app</code>
+              <button class="copy-inline" id="copy-quarantine" type="button" data-i18n="copyCommand">复制命令</button>
+            </div>
+          </li>
+          <li class="install-step reveal">
+            <span class="install-index">03</span>
+            <h3 data-i18n="installStepThreeTitle">授予辅助功能权限</h3>
+            <p data-i18n="installStepThreeCopy">按 Return 直接粘贴回原 App 是通过模拟 ⌘V 实现的，需要在「系统设置 → 隐私与安全性 → 辅助功能」里勾选 aPaste。全局快捷键不依赖这个权限；不授权时仍可复制内容后自己粘贴。</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section faq-section" id="faq">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <span class="section-kicker" data-i18n="faqKicker">常见问题</span>
+          <h2 data-i18n="faqTitle">安装前后最常被问到的几件事。</h2>
+        </div>
+
+        <div class="faq-list reveal">
+          <details class="faq-item">
+            <summary data-i18n="faqOneQ">提示「aPaste 已损坏，无法打开」怎么办？</summary>
+            <p data-i18n-html="faqOneA">应用没有经过 Apple 公证，Gatekeeper 会给出这个误导性提示。在终端执行 <code>xattr -dr com.apple.quarantine /Applications/aPaste.app</code> 后即可正常打开，安装包本身是完好的。</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faqTwoQ">为什么需要辅助功能权限？</summary>
+            <p data-i18n="faqTwoA">只有「粘贴回当前 App」这一个功能需要它——aPaste 通过模拟 ⌘V 完成粘贴。不授权时，其余功能（记录、搜索、Pinboard、复制到剪贴板）都照常工作。</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faqThreeQ">数据存在哪里？会上传吗？</summary>
+            <p data-i18n="faqThreeA">历史与 Pinboard 存在本机的本地数据库里。除了链接预览（可关闭）会请求网页信息之外，aPaste 不会主动联网；只有你自己指定共享文件夹后，才会向那个文件夹写出同步数据。</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faqFourQ">多台 Mac 怎么同步？</summary>
+            <p data-i18n="faqFourA">在两台 Mac 上指向同一个共享文件夹即可，例如 iCloud Drive、Dropbox 或 Syncthing 目录。aPaste 只负责按月分片写 NDJSON 记录和资源文件，同步本身交给你选择的工具。需要更强保护时可以开启端到端加密并设置口令。</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faqFiveQ">支持哪些内容类型？</summary>
+            <p data-i18n="faqFiveA">文本、链接、图片、文件四类。文本还会额外识别富文本格式和颜色值，图片可开启文字识别（OCR）后参与搜索。</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faqSixQ">能临时不记录吗？</summary>
+            <p data-i18n="faqSixA">可以。菜单栏里能临时暂停捕获，也可以在设置里把某些 App 加入忽略名单，或者用捕获规则按内容类型、文本、网址、扩展名等条件自动忽略。</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faqSevenQ">如果我想删掉所有数据？</summary>
+            <p data-i18n="faqSevenA">设置里可以一键清空历史，也能设置按天数或条数自动清理。删除应用后，把同步文件夹里的 aPaste 数据文件一并删除即可。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section download-section" id="download">
+      <div class="container">
+        <div class="download-card reveal">
+          <div class="download-glow" aria-hidden="true"></div>
+          <div class="download-copy">
+            <span class="section-kicker" data-i18n="downloadKicker">获取 aPaste</span>
+            <h2 data-i18n="downloadTitle">下载 aPaste，开始使用。</h2>
+            <p data-i18n="downloadCopy">需要 macOS 15 或更高版本。发布页里 Apple Silicon 与 Intel 各有一个 DMG，按芯片选择即可；Homebrew 会自动选对架构。</p>
+            <div class="download-buttons">
+              <a class="button button-primary button-light" href="https://github.com/AlliotTech/aPaste/releases/latest"><span data-i18n="downloadMac">下载最新版本</span></a>
+              <a class="button button-ghost" href="https://github.com/AlliotTech/aPaste/releases" target="_blank" rel="noreferrer"><span data-i18n="viewReleases">更新日志与历史版本</span></a>
+            </div>
+            <p class="download-note" data-i18n-html="downloadNote">首次打开需要移除隔离标记，粘贴功能需要辅助功能权限。<a href="#install">查看安装步骤</a></p>
+          </div>
+          <div class="terminal-card">
+            <div class="terminal-header"><span></span><span></span><span></span><strong>Terminal</strong></div>
+            <pre><code id="brew-command">brew tap alliottech/tap
+brew install --cask alliottech/tap/apaste
+xattr -dr com.apple.quarantine /Applications/aPaste.app</code></pre>
+            <button class="copy-command" id="copy-command" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3"/></svg>
+              <span data-i18n="copyCommand">复制命令</span>
+            </button>
+          </div>
+        </div>
+        <p class="requirements" data-i18n="requirements">需要 macOS 15 或更高版本，Apple Silicon 与 Intel 分别提供安装包（非通用二进制）。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-brand"><img src="assets/apaste-logo.png" width="28" height="28" alt=""><span>aPaste</span><small data-i18n="footerTagline">剪贴板历史，一搜即得。</small></div>
+      <div class="footer-links">
+        <a href="https://github.com/AlliotTech/aPaste" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://github.com/AlliotTech/aPaste/releases" target="_blank" rel="noreferrer" data-i18n="footerReleases">更新日志</a>
+        <a href="https://github.com/AlliotTech/aPaste/issues" target="_blank" rel="noreferrer" data-i18n="footerIssues">反馈问题</a>
+        <a href="https://github.com/AlliotTech/aPaste/blob/master/README.md" target="_blank" rel="noreferrer">README</a>
+        <a href="https://github.com/AlliotTech/aPaste/blob/master/README.zh-CN.md" target="_blank" rel="noreferrer">中文说明</a>
+      </div>
+      <p>© 2026 Alliot Tech.</p>
+    </div>
+  </footer>
+
+  <noscript><div class="noscript">启用 JavaScript 后可完整使用此页面（语言切换、预览切换等）。</div></noscript>
+  <script src="script.js?v=20260826-1"></script>
+</body>
+</html>
