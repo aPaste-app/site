@@ -12,6 +12,9 @@ const translations = {
     navGet: "下载 aPaste",
     navMenuOpen: "打开菜单",
     navMenuClose: "关闭菜单",
+    navMainLabel: "主导航",
+    navMobileLabel: "移动端导航",
+    showcaseTabsLabel: "选择预览",
     heroEyebrow: "aPaste for macOS 15+",
     heroTitleLead: "剪贴板历史，",
     heroTitleAccent: "一搜即得。",
@@ -19,7 +22,7 @@ const translations = {
     downloadLatest: "下载 aPaste",
     heroMetaLocal: "数据保存在本机",
     heroMetaAccount: "无需账号",
-    heroMetaArch: "Apple Silicon / Intel 分别构建",
+    heroMetaFree: "免费使用",
     openWith: "按",
     openInstantly: "打开 aPaste",
     backtickName: "反引号（Esc 下方那个键）",
@@ -30,13 +33,12 @@ const translations = {
     trustSyncTitle: "文件夹同步",
     trustSyncCopy: "任意共享文件夹，加密可选",
     trustNativeTitle: "菜单栏 App",
-    trustNativeCopy: "没有 Dock 图标，图标也能隐藏",
+    trustNativeCopy: "不占 Dock，菜单栏图标也可隐藏",
     featuresKicker: "核心功能",
     featuresTitle: "搜索历史。保存常用。",
     featuresCopy: "剪贴板历史以可搜索的卡片呈现，常用内容单独放在 Pinboard；需要连续粘贴多条时用 aPaste Stack，粘贴前还能顺手把内容处理好。",
     featureSearchTitle: "输入即可搜索。",
     featureSearchCopy: "按内容类型（文本、链接、图片、文件）、日期或来源 App 筛选；开启图片文字识别后，图里的文字也能被搜到。方向键选择，Return 粘贴。",
-    searchPillQuery: "设计规范",
     featurePinTitle: "常用内容，存进 Pinboard。",
     featurePinCopy: "代码片段、地址、回复模板放进彩色 Pinboard，⌘← / ⌘→ 切换。清理历史时 Pinboard 不受影响。",
     pinTagApi: "接口",
@@ -49,7 +51,7 @@ const translations = {
     featureStackTitle: "aPaste Stack：攒一批，再依次粘贴。",
     featureStackCopy: "⌘⇧C 打开 Stack，连续复制多条内容，然后按顺序一条条粘贴出去，整理表格和填表时特别省事。",
     stackItemName: "张三",
-    featurePreviewTitle: "每种内容，都有合适的预览。",
+    featurePreviewTitle: "四类内容，各有各的预览。",
     featurePreviewCopy: "文本保留富文本格式并识别其中的颜色值，链接可抓取网页标题和图片（这项联网抓取可以关掉），图片和文件各有对应卡片。",
     featureRulesTitle: "让规则自动整理。",
     featureRulesCopy: "按内容类型、来源 App、文本（支持正则）、网址主机、文件扩展名或体积区间，自动忽略或固定到指定 Pinboard。规则可以先在已有历史上试跑一遍。",
@@ -59,6 +61,7 @@ const translations = {
     ruleResultBoard: "开发",
     featureActionsTitle: "粘贴前，先把内容处理好。",
     featureActionsCopy: "卡片右键菜单里内置 9 个快捷处理动作，处理结果直接复制到剪贴板。",
+    actionsMenuTitle: "快捷动作",
     actionPrettyJson: "美化 JSON",
     actionMinifyJson: "压缩 JSON",
     actionTracking: "移除跟踪参数",
@@ -104,7 +107,7 @@ const translations = {
     privacyCopy: "aPaste 不需要账号，也没有自建云服务。只有在你亲自指定一个共享文件夹之后，数据才会被写出去——把它放进 iCloud Drive、Dropbox 或 Syncthing 的同步目录，多台 Mac 就能共用同一份历史。",
     privacyPointOne: "机密（密码管理器）与临时内容默认不记录",
     privacyPointTwo: "可以按 App 完全停止记录，也能临时暂停捕获",
-    privacyPointThree: "文件夹同步可开启端到端加密（PBKDF2-SHA256 + ChaCha20-Poly1305），默认关闭",
+    privacyPointThree: "文件夹同步可开启端到端加密，默认关闭",
     privacyPointFour: "链接预览是唯一的联网功能，可以随时关掉",
     privacyPointFive: "历史可按天数或条数自动清理，也能一键清空",
     syncCoreTitle: "共享文件夹",
@@ -113,7 +116,7 @@ const translations = {
     installTitle: "三步装好，两分钟搞定。",
     installCopy: "aPaste 目前没有 Apple 开发者签名与公证，所以需要手动放行一次。下面每一步都说明了原因。",
     installStepOneTitle: "下载对应芯片的 DMG",
-    installStepOneCopy: "每个版本提供两个安装包：Apple Silicon 用 <code>-arm64</code>，Intel 用 <code>-x86_64</code>。不确定的话点左上角  →「关于本机」看芯片型号。也可以用 Homebrew，它会自动选对架构。",
+    installStepOneCopy: "每个版本提供两个安装包：Apple Silicon 用 <code>-arm64</code>，Intel 用 <code>-x86_64</code>。不确定的话点左上角的苹果菜单 →「关于本机」看芯片型号。也可以用 Homebrew，它会自动选对架构。",
     installStepTwoTitle: "移除隔离标记",
     installStepTwoCopy: "把 aPaste.app 拖进「应用程序」后，macOS 可能提示「已损坏，无法打开」。这不是文件损坏，而是应用只做了本地签名、没有经过 Apple 公证，Gatekeeper 会拦下来。执行下面这条命令即可放行：",
     installStepThreeTitle: "授予辅助功能权限",
@@ -142,7 +145,7 @@ const translations = {
     downloadNote: "首次打开需要移除隔离标记，粘贴功能需要辅助功能权限。<a href=\"#install\">查看安装步骤</a>",
     copyCommand: "复制命令",
     commandCopied: "已复制",
-    requirements: "需要 macOS 15 或更高版本，Apple Silicon 与 Intel 分别提供安装包（非通用二进制）。",
+    requirements: "两个安装包按芯片分别构建，并非通用二进制。",
     footerTagline: "剪贴板历史，一搜即得。",
     footerReleases: "更新日志",
     footerIssues: "反馈问题",
@@ -162,6 +165,9 @@ const translations = {
     navGet: "Get aPaste",
     navMenuOpen: "Open menu",
     navMenuClose: "Close menu",
+    navMainLabel: "Main navigation",
+    navMobileLabel: "Mobile navigation",
+    showcaseTabsLabel: "Choose a preview",
     heroEyebrow: "aPaste for macOS 15+",
     heroTitleLead: "Your clipboard history,",
     heroTitleAccent: "one search away.",
@@ -169,7 +175,7 @@ const translations = {
     downloadLatest: "Download aPaste",
     heroMetaLocal: "Stored on your Mac",
     heroMetaAccount: "No account required",
-    heroMetaArch: "Separate Apple Silicon / Intel builds",
+    heroMetaFree: "Free to use",
     openWith: "Press",
     openInstantly: "to open aPaste",
     backtickName: "Backtick (the key below Esc)",
@@ -186,7 +192,6 @@ const translations = {
     featuresCopy: "History becomes searchable cards and reusable items live on Pinboards. aPaste Stack covers the times you need to paste several things in a row, and quick actions clean the content up first.",
     featureSearchTitle: "Search as you type.",
     featureSearchCopy: "Filter by content type (text, link, image, file), date or source app. With image text recognition on, words inside screenshots are searchable too. Arrow keys to select, Return to paste.",
-    searchPillQuery: "design system",
     featurePinTitle: "Keep reusable items on Pinboards.",
     featurePinCopy: "Snippets, addresses and reply templates live on colour-coded Pinboards, switched with ⌘← / ⌘→. Clearing history never touches them.",
     pinTagApi: "api",
@@ -199,7 +204,7 @@ const translations = {
     featureStackTitle: "aPaste Stack: collect first, paste in order.",
     featureStackCopy: "Press ⌘⇧C to open the Stack, copy several items in a row, then paste them out one by one in order — ideal for filling forms and assembling tables.",
     stackItemName: "Jane Doe",
-    featurePreviewTitle: "The right preview for every kind of copy.",
+    featurePreviewTitle: "Four content types, four kinds of preview.",
     featurePreviewCopy: "Text keeps its rich formatting and detected colour values, links can fetch page titles and images (that network lookup is switchable), and images and files each get their own card.",
     featureRulesTitle: "Let rules organize for you.",
     featureRulesCopy: "Ignore new captures automatically, or pin them to a specific Pinboard, based on content type, source app, text (regex supported), URL host, file extension or size range. Rules can be dry-run against your existing history first.",
@@ -209,6 +214,7 @@ const translations = {
     ruleResultBoard: "Development",
     featureActionsTitle: "Make it useful before you paste.",
     featureActionsCopy: "Nine quick actions live in the card's right-click menu; the result goes straight to your clipboard.",
+    actionsMenuTitle: "Quick actions",
     actionPrettyJson: "Pretty-print JSON",
     actionMinifyJson: "Minify JSON",
     actionTracking: "Remove tracking parameters",
@@ -254,7 +260,7 @@ const translations = {
     privacyCopy: "aPaste has no account and no cloud service of its own. Data leaves your Mac only after you pick a shared folder yourself — put it inside iCloud Drive, Dropbox or a Syncthing directory and several Macs share one history.",
     privacyPointOne: "Confidential (password manager) and transient content is never recorded",
     privacyPointTwo: "Stop capture completely for any app, or pause capture temporarily",
-    privacyPointThree: "Folder sync can be end-to-end encrypted (PBKDF2-SHA256 + ChaCha20-Poly1305); off by default",
+    privacyPointThree: "Folder sync can be end-to-end encrypted; off by default",
     privacyPointFour: "Link previews are the only network feature, and they can be switched off",
     privacyPointFive: "History can auto-clean by age or item count, or be erased in one click",
     syncCoreTitle: "Shared folder",
@@ -263,7 +269,7 @@ const translations = {
     installTitle: "Three steps, about two minutes.",
     installCopy: "aPaste is not signed with an Apple Developer ID and not notarized, so macOS needs you to allow it once. Each step below explains why.",
     installStepOneTitle: "Download the DMG for your chip",
-    installStepOneCopy: "Every release ships two installers: <code>-arm64</code> for Apple Silicon and <code>-x86_64</code> for Intel. Not sure which? Check  → About This Mac. Homebrew picks the right one for you.",
+    installStepOneCopy: "Every release ships two installers: <code>-arm64</code> for Apple Silicon and <code>-x86_64</code> for Intel. Not sure which? Open the Apple menu → About This Mac. Homebrew picks the right one for you.",
     installStepTwoTitle: "Remove the quarantine flag",
     installStepTwoCopy: "After dragging aPaste.app into Applications, macOS may claim it is damaged. The file is fine — the app is only ad-hoc signed and never went through Apple notarization, so Gatekeeper blocks it. This command clears it:",
     installStepThreeTitle: "Grant Accessibility permission",
@@ -292,7 +298,7 @@ const translations = {
     downloadNote: "First launch needs the quarantine flag removed, and pasting needs Accessibility permission. <a href=\"#install\">See the install steps</a>",
     copyCommand: "Copy command",
     commandCopied: "Copied",
-    requirements: "Requires macOS 15 or later. Apple Silicon and Intel ship as separate installers, not a universal binary.",
+    requirements: "Apple Silicon and Intel ship as separate builds — not a universal binary.",
     footerTagline: "Clipboard history, one search away.",
     footerReleases: "Changelog",
     footerIssues: "Report an issue",
@@ -348,6 +354,11 @@ function applyLanguage(language) {
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const value = dictionary[element.dataset.i18n];
     if (value) element.textContent = value;
+  });
+
+  document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+    const value = dictionary[element.dataset.i18nAria];
+    if (value) element.setAttribute("aria-label", value);
   });
 
   document.querySelectorAll("[data-i18n-html]").forEach((element) => {
@@ -417,6 +428,8 @@ languageToggle.addEventListener("click", () => {
 });
 
 const panelImage = document.querySelector("#panel-image");
+const metaThemeLight = document.querySelector("#meta-theme-light");
+const metaThemeDark = document.querySelector("#meta-theme-dark");
 
 function applyTheme(theme) {
   document.documentElement.dataset.theme = theme;
@@ -424,6 +437,8 @@ function applyTheme(theme) {
     const next = theme === "light" ? panelImage.dataset.srcLight : panelImage.dataset.srcDark;
     if (next && panelImage.getAttribute("src") !== next) panelImage.src = next;
   }
+  if (metaThemeLight) metaThemeLight.setAttribute("media", theme === "light" ? "all" : "not all");
+  if (metaThemeDark) metaThemeDark.setAttribute("media", theme === "dark" ? "all" : "not all");
 }
 
 themeToggle.addEventListener("click", () => {

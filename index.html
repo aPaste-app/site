@@ -6,8 +6,8 @@
   <meta name="description" content="aPaste 是一款 macOS 剪贴板管理器：快速搜索剪贴板历史，用 Pinboard 保存常用内容，全键盘操作，机密与临时内容默认不记录。">
   <meta name="author" content="Alliot Tech">
   <meta name="application-name" content="aPaste">
-  <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0b0b0d" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" id="meta-theme-light" content="#f5f5f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" id="meta-theme-dark" content="#0b0b0d" media="(prefers-color-scheme: dark)">
   <meta name="format-detection" content="telephone=no">
   <link rel="canonical" href="https://apaste.alliot.tech/">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -18,19 +18,19 @@
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:title" content="aPaste — macOS 剪贴板历史管理器">
   <meta property="og:description" content="快速搜索剪贴板历史，用 Pinboard 保存常用内容，按 Return 直接粘贴到当前 App。">
-  <meta property="og:image" content="https://apaste.alliot.tech/assets/hero-dark.webp">
+  <meta property="og:image" content="https://apaste.alliot.tech/og-image.png">
   <meta property="og:image:alt" content="aPaste 在 MacBook 上运行的剪贴板管理器界面">
-  <meta property="og:image:width" content="1920">
-  <meta property="og:image:height" content="1264">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="aPaste — macOS 剪贴板历史管理器">
   <meta name="twitter:description" content="快速搜索剪贴板历史，用 Pinboard 保存常用内容，按 Return 直接粘贴到当前 App。">
-  <meta name="twitter:image" content="https://apaste.alliot.tech/assets/hero-dark.webp">
+  <meta name="twitter:image" content="https://apaste.alliot.tech/og-image.png">
   <meta name="twitter:image:alt" content="aPaste 在 MacBook 上运行的剪贴板管理器界面">
   <title>aPaste — macOS 剪贴板历史管理器</title>
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="icon-32.png" type="image/png" sizes="32x32">
-  <link rel="stylesheet" href="styles.css?v=20260826-1">
+  <link rel="stylesheet" href="styles.css?v=20260828-1">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -42,7 +42,7 @@
       "operatingSystem": "macOS 15 或更高版本",
       "inLanguage": "zh-CN",
       "description": "为 macOS 设计的键盘优先剪贴板管理器：可搜索的剪贴板历史、Pinboard、aPaste Stack、富预览、捕获规则、隐私控制，以及可选的文件夹同步。",
-      "image": "https://apaste.alliot.tech/assets/hero-dark.webp",
+      "image": "https://apaste.alliot.tech/og-image.png",
       "url": "https://apaste.alliot.tech/",
       "downloadUrl": "https://github.com/AlliotTech/aPaste/releases/latest",
       "codeRepository": "https://github.com/AlliotTech/aPaste",
@@ -75,6 +75,7 @@
       try { stored = localStorage.getItem("apaste-theme"); } catch (error) { stored = null; }
       document.documentElement.dataset.theme = stored ||
         (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+      document.documentElement.classList.add("js");
     })();
   </script>
 </head>
@@ -83,14 +84,14 @@
 
   <header class="site-header" id="site-header">
     <div class="nav-shell">
-      <a class="brand" href="#top" aria-label="aPaste home">
+      <a class="brand" href="#top">
         <span class="brand-mark" aria-hidden="true">
           <img src="assets/apaste-logo.png" alt="" width="34" height="34">
         </span>
         <span>aPaste</span>
       </a>
 
-      <nav class="main-nav" id="main-nav" aria-label="主导航">
+      <nav class="main-nav" id="main-nav" aria-label="主导航" data-i18n-aria="navMainLabel">
         <a href="#features" data-i18n="navFeatures">功能</a>
         <a href="#showcase" data-i18n="navShowcase">预览</a>
         <a href="#privacy" data-i18n="navPrivacy">隐私</a>
@@ -114,7 +115,7 @@
     </div>
 
     <div class="mobile-nav" id="mobile-nav" hidden>
-      <nav aria-label="移动端导航">
+      <nav aria-label="移动端导航" data-i18n-aria="navMobileLabel">
         <a href="#features" data-i18n="navFeatures">功能</a>
         <a href="#showcase" data-i18n="navShowcase">预览</a>
         <a href="#privacy" data-i18n="navPrivacy">隐私</a>
@@ -156,10 +157,10 @@
           </a>
         </div>
 
-        <div class="hero-meta" aria-label="Product highlights">
+        <div class="hero-meta">
           <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="heroMetaLocal">数据保存在本机</span></span>
           <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="heroMetaAccount">无需账号</span></span>
-          <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="heroMetaArch">Apple Silicon / Intel 分别构建</span></span>
+          <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="heroMetaFree">免费使用</span></span>
         </div>
       </div>
 
@@ -171,7 +172,7 @@
         </div>
         <div class="product-stage">
           <div class="stage-glow" aria-hidden="true"></div>
-          <img src="assets/hero-dark.webp" width="1920" height="1263" alt="aPaste 在 MacBook 上运行的剪贴板管理器界面" fetchpriority="high">
+          <img src="assets/hero-dark.webp" width="1920" height="1264" alt="aPaste 在 MacBook 上运行的剪贴板管理器界面" fetchpriority="high">
         </div>
       </div>
     </section>
@@ -213,7 +214,6 @@
               <p data-i18n="featureSearchCopy">按内容类型（文本、链接、图片、文件）、日期或来源 App 筛选；开启图片文字识别后，图里的文字也能被搜到。方向键选择，Return 粘贴。</p>
             </div>
             <div class="panel-visual" aria-hidden="true">
-              <div class="panel-search-pill"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span data-i18n="searchPillQuery">设计规范</span><kbd>⌘ F</kbd></div>
               <img id="panel-image" src="assets/panel-cards-dark.webp" data-src-dark="assets/panel-cards-dark.webp" data-src-light="assets/panel-cards-light.webp" width="1800" height="324" alt="" loading="lazy">
             </div>
           </article>
@@ -248,7 +248,7 @@
           <article class="bento-card preview-card reveal">
             <div class="card-copy">
               <span class="feature-icon feature-icon-cyan" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3Z"/><path d="m3 15 5-5 4 4 3-3 6 6"/><circle cx="16.5" cy="8.5" r="1.5"/></svg></span>
-              <h3 data-i18n="featurePreviewTitle">每种内容，都有合适的预览。</h3>
+              <h3 data-i18n="featurePreviewTitle">四类内容，各有各的预览。</h3>
               <p data-i18n="featurePreviewCopy">文本保留富文本格式并识别其中的颜色值，链接可抓取网页标题和图片（这项联网抓取可以关掉），图片和文件各有对应卡片。</p>
             </div>
             <div class="preview-window" aria-hidden="true">
@@ -277,6 +277,7 @@
               <p data-i18n="featureActionsCopy">卡片右键菜单里内置 9 个快捷处理动作，处理结果直接复制到剪贴板。</p>
             </div>
             <div class="action-menu" aria-hidden="true">
+              <div class="action-menu-header"><span data-i18n="actionsMenuTitle">快捷动作</span><em>9</em></div>
               <div><span>{ }</span><strong data-i18n="actionPrettyJson">美化 JSON</strong></div>
               <div><span>{ }</span><strong data-i18n="actionMinifyJson">压缩 JSON</strong></div>
               <div><span>↗</span><strong data-i18n="actionTracking">移除跟踪参数</strong></div>
@@ -326,14 +327,13 @@
         </div>
 
         <div class="showcase reveal">
-          <div class="showcase-tabs" role="tablist" aria-label="选择预览">
+          <div class="showcase-tabs" role="tablist" aria-label="选择预览" data-i18n-aria="showcaseTabsLabel">
             <button class="showcase-tab active" type="button" role="tab" id="showcase-tab-cards" aria-controls="showcase-panel" aria-selected="true" data-src="assets/showcase-cards-dark.webp" data-alt-key="showcaseAltCards" data-i18n="showcaseTabCards">内容卡片</button>
             <button class="showcase-tab" type="button" role="tab" id="showcase-tab-link" aria-controls="showcase-panel" aria-selected="false" tabindex="-1" data-src="assets/showcase-link-dark.webp" data-alt-key="showcaseAltLink" data-i18n="showcaseTabLink">链接预览</button>
             <button class="showcase-tab" type="button" role="tab" id="showcase-tab-color" aria-controls="showcase-panel" aria-selected="false" tabindex="-1" data-src="assets/showcase-color-dark.webp" data-alt-key="showcaseAltColor" data-i18n="showcaseTabColor">颜色预览</button>
             <button class="showcase-tab" type="button" role="tab" id="showcase-tab-light" aria-controls="showcase-panel" aria-selected="false" tabindex="-1" data-src="assets/showcase-cards-light.webp" data-alt-key="showcaseAltLight" data-i18n="showcaseTabLight">浅色模式</button>
           </div>
           <div class="showcase-frame" id="showcase-panel" role="tabpanel" aria-labelledby="showcase-tab-cards" tabindex="0">
-            <div class="window-bar" aria-hidden="true"><span></span><span></span><span></span><em>aPaste</em></div>
             <img id="showcase-image" src="assets/showcase-cards-dark.webp" width="1800" height="352" alt="aPaste 面板中的剪贴板内容卡片" loading="lazy">
           </div>
         </div>
@@ -363,7 +363,7 @@
           <ul class="check-list">
             <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="privacyPointOne">机密（密码管理器）与临时内容默认不记录</span></li>
             <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="privacyPointTwo">可以按 App 完全停止记录，也能临时暂停捕获</span></li>
-            <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="privacyPointThree">文件夹同步可开启端到端加密（PBKDF2-SHA256 + ChaCha20-Poly1305），默认关闭</span></li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="privacyPointThree">文件夹同步可开启端到端加密，默认关闭</span></li>
             <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="privacyPointFour">链接预览是唯一的联网功能，可以随时关掉</span></li>
             <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="privacyPointFive">历史可按天数或条数自动清理，也能一键清空</span></li>
           </ul>
@@ -396,7 +396,7 @@
           <li class="install-step reveal">
             <span class="install-index">01</span>
             <h3 data-i18n="installStepOneTitle">下载对应芯片的 DMG</h3>
-            <p data-i18n-html="installStepOneCopy">每个版本提供两个安装包：Apple Silicon 用 <code>-arm64</code>，Intel 用 <code>-x86_64</code>。不确定的话点左上角  →「关于本机」看芯片型号。也可以用 Homebrew，它会自动选对架构。</p>
+            <p data-i18n-html="installStepOneCopy">每个版本提供两个安装包：Apple Silicon 用 <code>-arm64</code>，Intel 用 <code>-x86_64</code>。不确定的话点左上角的苹果菜单 →「关于本机」看芯片型号。也可以用 Homebrew，它会自动选对架构。</p>
           </li>
           <li class="install-step reveal">
             <span class="install-index">02</span>
@@ -481,7 +481,7 @@ xattr -dr com.apple.quarantine /Applications/aPaste.app</code></pre>
             </button>
           </div>
         </div>
-        <p class="requirements" data-i18n="requirements">需要 macOS 15 或更高版本，Apple Silicon 与 Intel 分别提供安装包（非通用二进制）。</p>
+        <p class="requirements" data-i18n="requirements">两个安装包按芯片分别构建，并非通用二进制。</p>
       </div>
     </section>
   </main>
@@ -501,6 +501,6 @@ xattr -dr com.apple.quarantine /Applications/aPaste.app</code></pre>
   </footer>
 
   <noscript><div class="noscript">启用 JavaScript 后可完整使用此页面（语言切换、预览切换等）。</div></noscript>
-  <script src="script.js?v=20260826-1"></script>
+  <script src="script.js?v=20260828-1"></script>
 </body>
 </html>
