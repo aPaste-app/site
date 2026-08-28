@@ -1920,15 +1920,53 @@ body.nav-open {
 }
 
 .download-note {
-  margin: 26px 0 0;
-  color: #aeb4c8;
-  font-size: 12.5px;
+  display: grid;
+  max-width: 430px;
+  gap: 9px;
+  margin: 24px 0 0;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
 }
 
-.download-note a {
+.note-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin: 0;
+  color: #aeb4c8;
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+.note-line svg {
+  flex: 0 0 auto;
+  width: 15px;
+  height: 15px;
+  margin-top: 2px;
+  color: #ff9a86;
+}
+
+.note-line span {
+  min-width: 0;
+}
+
+.note-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   color: #fff;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  font-size: 12.5px;
+  font-weight: 620;
+}
+
+.note-link span:last-child {
+  transition: transform 160ms ease;
+}
+
+.note-link:hover span:last-child {
+  transform: translateX(3px);
 }
 
 
