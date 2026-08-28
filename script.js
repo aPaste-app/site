@@ -544,7 +544,8 @@ if (reducedMotion || !("IntersectionObserver" in window)) {
 } else {
   const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
+      // 已被瞬时跳转（End 键、锚点）甩到视口上方的内容也要显示
+      if (!entry.isIntersecting && entry.boundingClientRect.top >= 0) return;
       entry.target.classList.add("visible");
       observer.unobserve(entry.target);
     });

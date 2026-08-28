@@ -18,19 +18,21 @@
   <meta property="og:locale:alternate" content="en_US">
   <meta property="og:title" content="aPaste — macOS 剪贴板历史管理器">
   <meta property="og:description" content="快速搜索剪贴板历史，用 Pinboard 保存常用内容，按 Return 直接粘贴到当前 App。">
-  <meta property="og:image" content="https://apaste.alliot.tech/og-image.png">
+  <meta property="og:image" content="https://apaste.alliot.tech/og-image.jpg">
   <meta property="og:image:alt" content="aPaste 在 MacBook 上运行的剪贴板管理器界面">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="aPaste — macOS 剪贴板历史管理器">
   <meta name="twitter:description" content="快速搜索剪贴板历史，用 Pinboard 保存常用内容，按 Return 直接粘贴到当前 App。">
-  <meta name="twitter:image" content="https://apaste.alliot.tech/og-image.png">
+  <meta name="twitter:image" content="https://apaste.alliot.tech/og-image.jpg">
   <meta name="twitter:image:alt" content="aPaste 在 MacBook 上运行的剪贴板管理器界面">
   <title>aPaste — macOS 剪贴板历史管理器</title>
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="icon-32.png" type="image/png" sizes="32x32">
-  <link rel="stylesheet" href="styles.css?v=20260828-1">
+  <link rel="preload" href="assets/hero-dark.webp" as="image" imagesrcset="assets/hero-960.webp 960w, assets/hero-1440.webp 1440w, assets/hero-dark.webp 1920w" imagesizes="(max-width: 980px) calc(100vw - 40px), 1180px" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css?v=20260829-2">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -42,7 +44,8 @@
       "operatingSystem": "macOS 15 或更高版本",
       "inLanguage": "zh-CN",
       "description": "为 macOS 设计的键盘优先剪贴板管理器：可搜索的剪贴板历史、Pinboard、aPaste Stack、富预览、捕获规则、隐私控制，以及可选的文件夹同步。",
-      "image": "https://apaste.alliot.tech/og-image.png",
+      "image": "https://apaste.alliot.tech/og-image.jpg",
+      "screenshot": "https://apaste.alliot.tech/assets/hero-dark.webp",
       "url": "https://apaste.alliot.tech/",
       "downloadUrl": "https://github.com/AlliotTech/aPaste/releases/latest",
       "codeRepository": "https://github.com/AlliotTech/aPaste",
@@ -78,6 +81,7 @@
       document.documentElement.classList.add("js");
     })();
   </script>
+  <script src="script.js?v=20260829-2" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="skipLink">跳到主要内容</a>
@@ -172,7 +176,7 @@
         </div>
         <div class="product-stage">
           <div class="stage-glow" aria-hidden="true"></div>
-          <img src="assets/hero-dark.webp" width="1920" height="1264" alt="aPaste 在 MacBook 上运行的剪贴板管理器界面" fetchpriority="high">
+          <img src="assets/hero-dark.webp" srcset="assets/hero-960.webp 960w, assets/hero-1440.webp 1440w, assets/hero-dark.webp 1920w" sizes="(max-width: 980px) calc(100vw - 40px), 1180px" width="1920" height="1264" alt="aPaste 在 MacBook 上运行的剪贴板管理器界面" fetchpriority="high" decoding="async">
         </div>
       </div>
     </section>
@@ -214,7 +218,7 @@
               <p data-i18n="featureSearchCopy">按内容类型（文本、链接、图片、文件）、日期或来源 App 筛选；开启图片文字识别后，图里的文字也能被搜到。方向键选择，Return 粘贴。</p>
             </div>
             <div class="panel-visual" aria-hidden="true">
-              <img id="panel-image" src="assets/panel-cards-dark.webp" data-src-dark="assets/panel-cards-dark.webp" data-src-light="assets/panel-cards-light.webp" width="1800" height="324" alt="" loading="lazy">
+              <img id="panel-image" src="assets/panel-cards-dark.webp" data-src-dark="assets/panel-cards-dark.webp" data-src-light="assets/panel-cards-light.webp" width="1800" height="324" alt="" loading="lazy" decoding="async">
             </div>
           </article>
 
@@ -252,7 +256,7 @@
               <p data-i18n="featurePreviewCopy">文本保留富文本格式并识别其中的颜色值，链接可抓取网页标题和图片（这项联网抓取可以关掉），图片和文件各有对应卡片。</p>
             </div>
             <div class="preview-window" aria-hidden="true">
-              <img src="assets/showcase-color-dark.webp" width="1800" height="585" alt="" loading="lazy">
+              <img src="assets/showcase-color-dark.webp" width="1800" height="585" alt="" loading="lazy" decoding="async">
             </div>
           </article>
 
@@ -334,7 +338,7 @@
             <button class="showcase-tab" type="button" role="tab" id="showcase-tab-light" aria-controls="showcase-panel" aria-selected="false" tabindex="-1" data-src="assets/showcase-cards-light.webp" data-alt-key="showcaseAltLight" data-i18n="showcaseTabLight">浅色模式</button>
           </div>
           <div class="showcase-frame" id="showcase-panel" role="tabpanel" aria-labelledby="showcase-tab-cards" tabindex="0">
-            <img id="showcase-image" src="assets/showcase-cards-dark.webp" width="1800" height="352" alt="aPaste 面板中的剪贴板内容卡片" loading="lazy">
+            <img id="showcase-image" src="assets/showcase-cards-dark.webp" width="1800" height="352" alt="aPaste 面板中的剪贴板内容卡片" loading="lazy" decoding="async">
           </div>
         </div>
       </div>
@@ -505,6 +509,5 @@ xattr -dr com.apple.quarantine /Applications/aPaste.app</code></pre>
   </footer>
 
   <noscript><div class="noscript">启用 JavaScript 后可完整使用此页面（语言切换、预览切换等）。</div></noscript>
-  <script src="script.js?v=20260828-1"></script>
 </body>
 </html>
