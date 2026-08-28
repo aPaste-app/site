@@ -1665,18 +1665,13 @@ body.nav-open {
 .layout-card {
   position: relative;
   overflow: hidden;
-  min-height: 500px;
 }
 
 .stack-visual,
 .layout-visual {
-  position: absolute;
-  z-index: 2;
-  right: 34px;
-  bottom: 30px;
-  left: 34px;
   display: grid;
   gap: 10px;
+  margin-top: 24px;
 }
 
 .stack-chip {
@@ -1768,7 +1763,7 @@ body.nav-open {
 
 .layout-mock-center {
   display: grid;
-  height: 100px;
+  height: 150px;
   grid-template-columns: 34% 1fr;
   gap: 8px;
 }
@@ -2097,17 +2092,6 @@ html.js .reveal:not(.visible) {
 
   .install-step {
     padding: 24px 20px;
-  }
-
-  .stack-visual,
-  .layout-visual {
-    right: 20px;
-    left: 20px;
-  }
-
-  .stack-card,
-  .layout-card {
-    min-height: 540px;
   }
 
   .nav-shell {
