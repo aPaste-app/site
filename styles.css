@@ -1521,6 +1521,7 @@ html[data-theme="light"] .device {
 }
 
 .terminal-card {
+  align-self: center;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 19px;
@@ -1547,7 +1548,6 @@ html[data-theme="light"] .device {
 }
 
 .terminal-card pre {
-  min-height: 150px;
   margin: 0;
   padding: 27px 24px 18px;
   overflow-x: auto;
