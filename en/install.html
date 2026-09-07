@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Install aPaste on macOS: choose the Apple Silicon or Intel build, use Homebrew, resolve the damaged app warning, and grant Accessibility permission.">
+  <meta name="author" content="Alliot Tech">
+  <meta name="application-name" content="aPaste">
+  <meta name="theme-color" id="meta-theme-light" content="#f5f5f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" id="meta-theme-dark" content="#0b0b0d" media="(prefers-color-scheme: dark)">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="canonical" href="https://apaste.alliot.tech/en/install.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://apaste.alliot.tech/install.html">
+  <link rel="alternate" hreflang="en" href="https://apaste.alliot.tech/en/install.html">
+  <link rel="alternate" hreflang="x-default" href="https://apaste.alliot.tech/install.html">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="aPaste">
+  <meta property="og:url" content="https://apaste.alliot.tech/en/install.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="zh_CN">
+  <meta property="og:title" content="Install aPaste on macOS — installation and permissions guide">
+  <meta property="og:description" content="Download the correct DMG, resolve the Gatekeeper warning, and configure Accessibility permission.">
+  <meta property="og:image" content="https://apaste.alliot.tech/og-image.jpg">
+  <meta property="og:image:alt" content="aPaste clipboard manager running on a MacBook">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Install aPaste on macOS — installation and permissions guide">
+  <meta name="twitter:description" content="Download the correct DMG, resolve the Gatekeeper warning, and configure Accessibility permission.">
+  <meta name="twitter:image" content="https://apaste.alliot.tech/og-image.jpg">
+  <meta name="twitter:image:alt" content="aPaste clipboard manager running on a MacBook">
+  <title>Install aPaste on macOS — installation and permissions guide</title>
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" href="../icon-32.png" type="image/png" sizes="32x32">
+  <link rel="stylesheet" href="../styles.css?v=20260907-2">
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Install aPaste","description":"Download, install, and authorize aPaste on macOS.","inLanguage":"en","url":"https://apaste.alliot.tech/en/install.html","step":[{"@type":"HowToStep","name":"Download the DMG for your chip"},{"@type":"HowToStep","name":"Remove the quarantine flag"},{"@type":"HowToStep","name":"Grant Accessibility permission"}]}
+  </script>
+  <script>(function(){var stored=null;try{stored=localStorage.getItem("apaste-theme")}catch(error){}document.documentElement.dataset.theme=stored||(matchMedia("(prefers-color-scheme: light)").matches?"light":"dark");document.documentElement.classList.add("js")})();</script>
+  <script src="../features.js?v=20260907-3" defer></script>
+</head><body data-page="install">
+  <a class="skip-link" href="#main" data-zh="跳到主要内容" data-en="Skip to main content">Skip to main content</a>
+  <header class="site-header" id="site-header"><div class="nav-shell">
+    <a class="brand" href="index.html#top"><span class="brand-mark" aria-hidden="true"><img src="../assets/apaste-logo.png" alt="" width="34" height="34"></span><span>aPaste</span></a>
+    <nav class="main-nav" aria-label="Main navigation"><a href="features.html" data-zh="功能" data-en="Features">Features</a><a href="index.html#showcase" data-zh="预览" data-en="Preview">Preview</a><a href="index.html#privacy" data-zh="隐私" data-en="Privacy">Privacy</a><a href="install.html" aria-current="page" data-zh="安装" data-en="Install">Install</a><a href="index.html#faq" data-zh="常见问题" data-en="FAQ">FAQ</a><a href="index.html#download" data-zh="下载" data-en="Download">Download</a></nav>
+    <div class="nav-actions"><a class="icon-button language-toggle" id="language-toggle" href="../install.html" hreflang="zh-CN" aria-label="切换为中文">中</a><button class="icon-button theme-toggle" id="theme-toggle" type="button" aria-label="Toggle appearance"><svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></svg><svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg></button><a class="nav-download" href="https://github.com/AlliotTech/aPaste/releases/latest" data-zh="下载 aPaste" data-en="Get aPaste">Get aPaste</a><button class="icon-button nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu"><svg class="menu-open-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="menu-close-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  </div><div class="mobile-nav" id="mobile-nav" hidden><nav aria-label="Mobile navigation"><a href="features.html" data-zh="功能" data-en="Features">Features</a><a href="index.html#showcase" data-zh="预览" data-en="Preview">Preview</a><a href="index.html#privacy" data-zh="隐私" data-en="Privacy">Privacy</a><a href="install.html" aria-current="page" data-zh="安装" data-en="Install">Install</a><a href="index.html#faq" data-zh="常见问题" data-en="FAQ">FAQ</a><a href="index.html#download" data-zh="下载" data-en="Download">Download</a></nav></div></header><main id="main"><section class="section install-section"><div class="container">
+  <div class="section-heading centered reveal"><span class="section-kicker" data-zh="安装与权限" data-en="Install and permissions">Install and permissions</span><h1 data-zh="三步装好 aPaste。" data-en="Install aPaste in three steps.">Install aPaste in three steps.</h1><p data-zh="选择与你的 Mac 匹配的安装包，处理 Gatekeeper 提示，再按需授予辅助功能权限。" data-en="Choose the right build for your Mac, clear the Gatekeeper prompt, and grant Accessibility permission if you want direct pasting.">Choose the right build for your Mac, clear the Gatekeeper prompt, and grant Accessibility permission if you want direct pasting.</p></div>
+  <ol class="install-grid"><li class="install-step reveal"><span class="install-index">01</span><h2 data-zh="下载对应芯片的 DMG" data-en="Download the DMG for your chip">Download the DMG for your chip</h2><p data-zh="Apple Silicon 使用 -arm64，Intel 使用 -x86_64。不确定时打开苹果菜单 →「关于本机」查看芯片；Homebrew 会自动选择正确架构。" data-en="Use -arm64 for Apple Silicon and -x86_64 for Intel. Check Apple menu → About This Mac if unsure; Homebrew selects the right architecture automatically.">Use <code>-arm64</code> for Apple Silicon and <code>-x86_64</code> for Intel. Check Apple menu → About This Mac if unsure; Homebrew selects the right architecture automatically.</p><div class="code-line"><code id="brew-command">brew tap alliottech/tap
+brew install --cask alliottech/tap/apaste</code><button class="copy-inline" id="copy-command" type="button" data-zh="复制命令" data-en="Copy command">Copy command</button></div></li>
+  <li class="install-step reveal"><span class="install-index">02</span><h2 data-zh="移除隔离标记" data-en="Remove the quarantine flag">Remove the quarantine flag</h2><p data-zh="把 aPaste.app 拖进「应用程序」后，macOS 可能提示“已损坏，无法打开”。安装包并未损坏；应用尚未经过 Apple 公证，Gatekeeper 因此拦截。" data-en="After moving aPaste.app to Applications, macOS may claim it is damaged. The download is intact; Gatekeeper blocks it because the app is not notarized by Apple.">After moving aPaste.app to Applications, macOS may claim it is damaged. The download is intact; Gatekeeper blocks it because the app is not notarized by Apple.</p><div class="code-line"><code id="quarantine-command">xattr -dr com.apple.quarantine /Applications/aPaste.app</code><button class="copy-inline" id="copy-quarantine" type="button" data-zh="复制命令" data-en="Copy command">Copy command</button></div></li>
+  <li class="install-step reveal"><span class="install-index">03</span><h2 data-zh="授予辅助功能权限" data-en="Grant Accessibility permission">Grant Accessibility permission</h2><p data-zh="直接粘贴回原 App 需要在「系统设置 → 隐私与安全性 → 辅助功能」中启用 aPaste。不授权时，记录、搜索、Pinboard 和复制到剪贴板仍可正常使用。" data-en="Direct pasting requires aPaste under System Settings → Privacy & Security → Accessibility. Capture, search, Pinboards, and copying to the clipboard still work without it.">Direct pasting requires aPaste under System Settings → Privacy & Security → Accessibility. Capture, search, Pinboards, and copying to the clipboard still work without it.</p></li></ol>
+</div></section></main><footer class="site-footer"><div class="container footer-content"><div class="footer-brand"><img src="../assets/apaste-logo.png" width="28" height="28" alt=""><span>aPaste</span><small data-zh="剪贴板历史，一搜即得。" data-en="Clipboard history, one search away.">Clipboard history, one search away.</small></div><div class="footer-links"><a href="index.html" data-zh="首页" data-en="Home">Home</a><a href="features.html" data-zh="功能" data-en="Features">Features</a><a href="https://github.com/AlliotTech/aPaste/releases" target="_blank" rel="noreferrer" data-zh="更新日志" data-en="Changelog">Changelog</a><a href="https://github.com/AlliotTech/aPaste/issues" target="_blank" rel="noreferrer" data-zh="反馈问题" data-en="Report an issue">Report an issue</a></div><p>© 2026 Alliot Tech.</p></div></footer></body></html>

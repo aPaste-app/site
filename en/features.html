@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore aPaste clipboard history, Pinboards, batch pasting, previews, capture rules, quick actions, privacy controls, and optional folder sync for macOS.">
+  <meta name="author" content="Alliot Tech">
+  <meta name="application-name" content="aPaste">
+  <meta name="theme-color" id="meta-theme-light" content="#f5f5f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" id="meta-theme-dark" content="#0b0b0d" media="(prefers-color-scheme: dark)">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="canonical" href="https://apaste.alliot.tech/en/features.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://apaste.alliot.tech/features.html">
+  <link rel="alternate" hreflang="en" href="https://apaste.alliot.tech/en/features.html">
+  <link rel="alternate" hreflang="x-default" href="https://apaste.alliot.tech/features.html">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="aPaste">
+  <meta property="og:url" content="https://apaste.alliot.tech/en/features.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="zh_CN">
+  <meta property="og:title" content="aPaste features — clipboard history, Pinboards, and batch pasting">
+  <meta property="og:description" content="Explore aPaste clipboard history, Pinboards, batch pasting, previews, capture rules, quick actions, privacy controls, and optional folder sync for macOS.">
+  <meta property="og:image" content="https://apaste.alliot.tech/og-image.jpg">
+  <meta property="og:image:alt" content="aPaste clipboard manager running on a MacBook">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="aPaste features — clipboard history, Pinboards, and batch pasting">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta name="twitter:description" content="Explore aPaste clipboard history, Pinboards, batch pasting, previews, capture rules, quick actions, privacy controls, and optional folder sync for macOS.">
+  <meta name="twitter:image" content="https://apaste.alliot.tech/og-image.jpg">
+  <title>aPaste features — clipboard history, Pinboards, and batch pasting</title>
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" href="../icon-32.png" type="image/png" sizes="32x32">
+  <meta name="twitter:image:alt" content="aPaste clipboard manager running on a MacBook">
+  <link rel="stylesheet" href="../styles.css?v=20260907-2">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://apaste.alliot.tech/#website",
+          "url": "https://apaste.alliot.tech/",
+          "name": "aPaste",
+          "description": "Explore aPaste clipboard history, Pinboards, batch pasting, previews, capture rules, quick actions, privacy controls, and optional folder sync for macOS.",
+          "inLanguage": "en",
+          "publisher": { "@id": "https://apaste.alliot.tech/#organization" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://apaste.alliot.tech/#organization",
+          "name": "Alliot Tech",
+          "url": "https://github.com/AlliotTech",
+          "sameAs": ["https://github.com/AlliotTech"]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://apaste.alliot.tech/en/features.html#webpage",
+          "name": "aPaste features",
+          "description": "Explore aPaste clipboard history, Pinboards, batch pasting, previews, capture rules, quick actions, privacy controls, and optional folder sync for macOS.",
+          "url": "https://apaste.alliot.tech/en/features.html",
+          "inLanguage": "en",
+          "isPartOf": { "@id": "https://apaste.alliot.tech/#website" },
+          "about": {
+            "@type": "SoftwareApplication",
+            "name": "aPaste",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "macOS 15 or later",
+            "downloadUrl": "https://github.com/AlliotTech/aPaste/releases/latest",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+          }
+        }
+      ]
+    }
+  </script>
+  <script>
+    (function () {
+      var stored = null;
+      try { stored = localStorage.getItem("apaste-theme"); } catch (error) { stored = null; }
+      document.documentElement.dataset.theme = stored ||
+      document.documentElement.classList.add("js");
+    })();
+  </script>
+  <script src="../features.js?v=20260907-3" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-zh="跳到主要内容" data-en="Skip to main content">Skip to main content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="index.html#top">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="../assets/apaste-logo.png" alt="" width="34" height="34">
+        </span>
+        <span>aPaste</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <a href="features.html" aria-current="page" data-zh="功能" data-en="Features">Features</a>
+        <a href="index.html#showcase" data-zh="预览" data-en="Preview">Preview</a>
+        <a href="index.html#privacy" data-zh="隐私" data-en="Privacy">Privacy</a>
+        <a href="install.html" data-zh="安装" data-en="Install">Install</a>
+        <a href="index.html#faq" data-zh="常见问题" data-en="FAQ">FAQ</a>
+        <a href="index.html#download" data-zh="下载" data-en="Download">Download</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="icon-button language-toggle" id="language-toggle" href="../features.html" hreflang="zh-CN" aria-label="切换为中文">中</a>
+        <button class="icon-button theme-toggle" id="theme-toggle" type="button" aria-label="Toggle appearance">
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+        </button>
+        <a class="nav-download" href="https://github.com/AlliotTech/aPaste/releases/latest" data-zh="下载 aPaste" data-en="Get aPaste">Get aPaste</a>
+        <button class="icon-button nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+          <svg class="menu-open-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="menu-close-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav" id="mobile-nav" hidden>
+      <nav aria-label="Mobile navigation">
+        <a href="features.html" data-zh="功能" data-en="Features">Features</a>
+        <a href="index.html#showcase" data-zh="预览" data-en="Preview">Preview</a>
+        <a href="index.html#privacy" data-zh="隐私" data-en="Privacy">Privacy</a>
+        <a href="install.html" data-zh="安装" data-en="Install">Install</a>
+        <a href="index.html#faq" data-zh="常见问题" data-en="FAQ">FAQ</a>
+        <a href="index.html#download" data-zh="下载" data-en="Download">Download</a>
+      </nav>
+      <a class="button button-primary mobile-nav-cta" href="https://github.com/AlliotTech/aPaste/releases/latest">
+        <span data-zh="下载 aPaste" data-en="Download aPaste">Download aPaste</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section features-section" id="features">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <span class="section-kicker" data-zh="功能一览" data-en="All features">All features</span>
+          <h1 data-zh="把复制过的内容，变成自己的工具箱。" data-en="Everything you copy, within reach.">Everything you copy, within reach.</h1>
+          <p data-zh="从自动记录到精准搜索，从常用内容到批量粘贴。下面是 aPaste 目前提供的全部能力。" data-en="From automatic capture to precise search, from reusable snippets to batch pasting. Here is everything aPaste does today.">From automatic capture to precise search, from reusable snippets to batch pasting. Here is everything aPaste does today.</p>
+        </div>
+
+        <div class="bento-grid">
+          <article class="bento-card bento-wide search-card reveal">
+            <div class="card-copy">
+              <span class="feature-icon feature-icon-blue" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></span>
+              <h3 data-zh="剪贴板历史，输入即可搜索。" data-en="Clipboard history you can actually search.">Clipboard history you can actually search.</h3>
+              <p data-zh="任何 App 复制的文本、链接、图片和文件都会自动进入历史，相同内容只保留一条。按关键词搜索，或用 type: / date: / app: 按内容类型、日期和来源 App 筛选，筛选条件会变成搜索框里的标签。开启图片文字识别后，图里的文字也参与搜索，识别结果只保存在本机。" data-en="Text, links, images, and files copied in any app are captured automatically, and identical content stays a single row. Search by keyword, or filter with type: / date: / app: tokens that turn into pills in the search field. Turn on image text recognition and text inside images becomes searchable too, stored only on this Mac.">Text, links, images, and files copied in any app are captured automatically, and identical content stays a single row. Search by keyword, or filter with type: / date: / app: tokens that turn into pills in the search field. Turn on image text recognition and text inside images becomes searchable too, stored only on this Mac.</p>
+            </div>
+            <div class="panel-visual" aria-hidden="true">
+              <img id="panel-image" src="../assets/panel-cards-dark.webp" data-src-dark="../assets/panel-cards-dark.webp" data-src-light="../assets/panel-cards-light.webp" width="1800" height="324" alt="" loading="lazy" decoding="async">
+            </div>
+          </article>
+
+          <article class="bento-card pinboard-card reveal">
+            <div class="card-copy">
+              <span class="feature-icon feature-icon-violet" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4h10v16l-5-3-5 3Z"/></svg></span>
+              <h3 data-zh="Pinboard：常用内容不会被清理。" data-en="Pinboards: reusable content that never expires.">Pinboards: reusable content that never expires.</h3>
+              <p data-zh="创建带颜色的 Pinboard，把代码片段、地址和回复模板固定进去。支持右键固定、在 Pinboard 之间移动，也可以把卡片直接拖到标签上。历史按天数或条数自动清理时，Pinboard 里的内容始终保留。面板内用快捷键切换上一个 / 下一个 Pinboard。" data-en="Create colored Pinboards for snippets, addresses, and reply templates. Pin from the context menu, move items between boards, or drag a card onto a board tab. Retention cleanup by age or count never touches pinned items. In-panel shortcuts cycle to the previous or next board.">Create colored Pinboards for snippets, addresses, and reply templates. Pin from the context menu, move items between boards, or drag a card onto a board tab. Retention cleanup by age or count never touches pinned items. In-panel shortcuts cycle to the previous or next board.</p>
+            </div>
+            <div class="pinboard-stack" aria-hidden="true">
+              <div class="pin-card pin-orange"><span data-zh="接口" data-en="API">API</span><strong>Authorization</strong><small>Bearer ••••••••</small></div>
+              <div class="pin-card pin-blue"><span data-zh="客服" data-en="Support">Support</span><strong data-zh="感谢反馈，已收到" data-en="Thanks, we got it">Thanks, we got it</strong><small data-zh="回复模板" data-en="Reply template">Reply template</small></div>
+              <div class="pin-card pin-pink"><span data-zh="品牌" data-en="Brand">Brand</span><strong>#6C5CE7</strong><small data-zh="主色紫" data-en="Primary purple">Primary purple</small></div>
+            </div>
+          </article>
+
+          <article class="bento-card stack-card reveal">
+            <div class="card-copy">
+              <span class="feature-icon feature-icon-orange" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="6" rx="2"/><rect x="4" y="14" width="16" height="6" rx="2"/></svg></span>
+              <h3 data-zh="aPaste Stack：攒一批，再依次粘贴。" data-en="aPaste Stack: collect a batch, paste in order.">aPaste Stack: collect a batch, paste in order.</h3>
+              <p data-zh="用全局快捷键打开 Stack，然后连续复制多条内容。收集期间即使复制了相同的内容，也会各自成为一条，再按顺序逐条粘贴出去。填表、整理表格和搬运数据时，不用在窗口之间来回切换。" data-en="Open Stack with a global shortcut, then keep copying. While it collects, even repeated copies of identical content become separate rows, so you can paste them out one by one in order. No window juggling while filling forms or moving data.">Open Stack with a global shortcut, then keep copying. While it collects, even repeated copies of identical content become separate rows, so you can paste them out one by one in order. No window juggling while filling forms or moving data.</p>
+            </div>
+            <div class="stack-visual" aria-hidden="true">
+              <div class="stack-chip"><em>1</em><strong data-zh="张三" data-en="Jane Doe">Jane Doe</strong></div>
+              <div class="stack-chip"><em>2</em><strong>13800000000</strong></div>
+              <div class="stack-chip"><em>3</em><strong>zhangsan@example.com</strong></div>
+              <div class="stack-hint"><kbd>⌘</kbd><kbd>⇧</kbd><kbd>C</kbd></div>
+            </div>
+          </article>
+
+          <article class="bento-card preview-card reveal">
+            <div class="card-copy">
+              <span class="feature-icon feature-icon-cyan" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3Z"/><path d="m3 15 5-5 4 4 3-3 6 6"/><circle cx="16.5" cy="8.5" r="1.5"/></svg></span>
+              <h3 data-zh="每种内容，都有合适的预览。" data-en="A purpose-built preview for every type.">A purpose-built preview for every type.</h3>
+              <p data-zh="富文本保留原有样式；颜色值显示整块色彩和十六进制标签，文字对比度按亮度自动调整；链接会抓取标题、图标和封面图；图片和文件各有对应的卡片。链接抓取是唯一的联网功能，可以关掉，关掉后立即回退到默认图标。" data-en="Rich text keeps its styling. Color values fill the card with a swatch and hex label, with text contrast picked by luminance. Links fetch title, icon, and cover image. Images and files get their own cards. Link fetching is the only network feature and can be switched off, falling back to a default icon immediately.">Rich text keeps its styling. Color values fill the card with a swatch and hex label, with text contrast picked by luminance. Links fetch title, icon, and cover image. Images and files get their own cards. Link fetching is the only network feature and can be switched off, falling back to a default icon immediately.</p>
+            </div>
+            <div class="preview-window" aria-hidden="true">
+              <img src="../assets/showcase-color-dark.webp" width="1800" height="585" alt="" loading="lazy" decoding="async">
+            </div>
+          </article>
+
+          <article class="bento-card rules-card reveal">
+            <div class="card-copy">
+              <span class="feature-icon feature-icon-green" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/><circle cx="8" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="12" cy="18" r="2"/></svg></span>
+              <h3 data-zh="捕获规则，让新内容自动归位。" data-en="Capture rules that file new content for you.">Capture rules that file new content for you.</h3>
+              <p data-zh="按内容类型、来源 App、文本或正则、网址主机、文件扩展名和体积区间设置条件，全部条件命中时自动忽略捕获，或直接固定到指定 Pinboard。可以从当前剪贴板或某张卡片一键创建规则，常用条件默认展开，进阶条件收在折叠区里，规则还能先在已有历史上试跑一遍。" data-en="Match on content type, source app, text or regex, URL host, file extension, and size range. When every condition matches, the item is ignored or pinned to a board automatically. Create a rule from the current clipboard or an existing card, keep common conditions visible with advanced ones tucked away, and test a rule against existing history before saving.">Match on content type, source app, text or regex, URL host, file extension, and size range. When every condition matches, the item is ignored or pinned to a board automatically. Create a rule from the current clipboard or an existing card, keep common conditions visible with advanced ones tucked away, and test a rule against existing history before saving.</p>
+            </div>
+            <div class="rule-builder" aria-hidden="true">
+              <div class="rule-row"><span class="rule-label">IF</span><span class="rule-chip" data-zh="来源 App" data-en="Source app">Source app</span><span class="rule-value">Xcode</span></div>
+              <div class="rule-row"><span class="rule-label">AND</span><span class="rule-chip" data-zh="文本包含" data-en="Text contains">Text contains</span><span class="rule-value">TODO</span></div>
+              <div class="rule-arrow" aria-hidden="true">↓</div>
+              <div class="rule-result"><span class="rule-pin"></span><span data-zh="固定到" data-en="Pin to">Pin to</span><strong data-zh="开发" data-en="Dev">Dev</strong></div>
+            </div>
+          </article>
+
+          <article class="bento-card actions-card reveal">
+            <div class="card-copy">
+              <span class="feature-icon feature-icon-pink" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6Z"/><path d="m19 15 .8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8Z"/></svg></span>
+              <h3 data-zh="粘贴前，先把内容处理好。" data-en="Clean the content up before you paste it.">Clean the content up before you paste it.</h3>
+              <p data-zh="卡片右键菜单里有 9 个快捷动作：美化或压缩 JSON、移除常见 URL 跟踪参数、复制为 Markdown 链接、复制图片中识别出的文字，以及转换大小写、合并为单行、去掉多余空白。菜单只显示当前内容用得上的动作，结果直接进入剪贴板，不会新增历史条目。" data-en="Nine quick actions live in the card's context menu: pretty-print or minify JSON, strip common URL tracking parameters, copy as a Markdown link, copy text recognized in an image, and transform case, join to one line, or trim whitespace. Only applicable actions appear, and the result goes straight to the clipboard without adding a history row.">Nine quick actions live in the card's context menu: pretty-print or minify JSON, strip common URL tracking parameters, copy as a Markdown link, copy text recognized in an image, and transform case, join to one line, or trim whitespace. Only applicable actions appear, and the result goes straight to the clipboard without adding a history row.</p>
+            </div>
+            <div class="action-menu" aria-hidden="true">
+              <div class="action-menu-header"><span data-zh="快捷动作" data-en="Quick actions">Quick actions</span><em>9</em></div>
+              <div><span>{ }</span><strong data-zh="美化 JSON" data-en="Pretty-print JSON">Pretty-print JSON</strong></div>
+              <div><span>{ }</span><strong data-zh="压缩 JSON" data-en="Minify JSON">Minify JSON</strong></div>
+              <div><span>↗</span><strong data-zh="移除跟踪参数" data-en="Remove tracking parameters">Remove tracking parameters</strong></div>
+              <div><span>MD</span><strong data-zh="复制为 Markdown 链接" data-en="Copy as Markdown link">Copy as Markdown link</strong></div>
+              <div><span>Aa</span><strong data-zh="复制识别文字" data-en="Copy recognized text">Copy recognized text</strong></div>
+              <div><span>⇥</span><strong data-zh="大小写 / 单行 / 去空白" data-en="Case / one line / trim">Case / one line / trim</strong></div>
+            </div>
+          </article>
+
+          <article class="bento-card layout-card reveal">
+            <div class="card-copy">
+              <span class="feature-icon feature-icon-blue" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M10 4v16"/></svg></span>
+              <h3 data-zh="两种面板形态，按习惯选。" data-en="Two panel layouts, your pick.">Two panel layouts, your pick.</h3>
+              <p data-zh="底部面板贴着屏幕下沿横向浏览，适合快速扫一眼；Command Center 是可调整大小的窗口，左边是按日期分组的列表、右边是详情，适合长内容，窗口位置和分栏宽度都会被记住。两种形态共用同一套卡片、徽标和预览。" data-en="The bottom panel hugs the screen edge for quick horizontal scanning. Command Center is a resizable window with a date-grouped list on the left and details on the right, remembering both its frame and split width. Both layouts share the same cards, badges, and previews.">The bottom panel hugs the screen edge for quick horizontal scanning. Command Center is a resizable window with a date-grouped list on the left and details on the right, remembering both its frame and split width. Both layouts share the same cards, badges, and previews.</p>
+            </div>
+            <div class="layout-visual" aria-hidden="true">
+              <div class="layout-mock layout-mock-bottom"><span></span><span></span><span></span><span></span><em data-zh="底部面板" data-en="Bottom panel">Bottom panel</em></div>
+              <div class="layout-mock layout-mock-center"><i></i><b></b><em data-zh="Command Center" data-en="Command Center">Command Center</em></div>
+            </div>
+          </article>
+
+          <article class="bento-card bento-wide privacy-card reveal">
+            <div class="privacy-copy card-copy">
+              <span class="feature-icon feature-icon-cyan" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="M9 12h6M12 9v6"/></svg></span>
+              <h3 data-zh="隐私默认开启，同步由你决定。" data-en="Private by default, synced only if you say so.">Private by default, synced only if you say so.</h3>
+              <p data-zh="密码管理器等标记为机密的内容、以及临时剪贴板内容开箱即被跳过；可以按 App 完全停止记录，也能从菜单栏临时暂停捕获。历史保存在本机数据库；只有你亲自指定一个共享文件夹后才会写出同步数据，可放进 iCloud Drive、Dropbox 或 Syncthing，并可开启端到端加密。" data-en="Content marked confidential by password managers and transient clipboard data are skipped out of the box. Ignore specific apps entirely, or pause capture from the menu bar. History lives in a local database, and sync data is only written after you pick a shared folder — iCloud Drive, Dropbox, or Syncthing — with optional end-to-end encryption.">Content marked confidential by password managers and transient clipboard data are skipped out of the box. Ignore specific apps entirely, or pause capture from the menu bar. History lives in a local database, and sync data is only written after you pick a shared folder — iCloud Drive, Dropbox, or Syncthing — with optional end-to-end encryption.</p>
+              <a href="index.html#privacy" class="text-link"><span data-zh="查看隐私与同步" data-en="See privacy and sync">See privacy and sync</span><span aria-hidden="true">→</span></a>
+            </div>
+            <div class="privacy-console" aria-hidden="true">
+              <div class="console-top"><span></span><span></span><span></span><strong data-zh="隐私" data-en="Privacy">Privacy</strong></div>
+              <div class="console-row"><span><b data-zh="机密内容" data-en="Confidential content">Confidential content</b><small data-zh="跳过密码管理器与标记为机密的内容" data-en="Skip password managers and concealed data">Skip password managers and concealed data</small></span><i class="toggle-on"></i></div>
+              <div class="console-row"><span><b data-zh="临时内容" data-en="Transient content">Transient content</b><small data-zh="跳过标记为临时的剪贴板内容" data-en="Skip clipboard items marked temporary">Skip clipboard items marked temporary</small></span><i class="toggle-on"></i></div>
+              <div class="console-row"><span><b data-zh="屏幕捕获隐藏" data-en="Hide from screen capture">Hide from screen capture</b><small data-zh="可选开关，默认关闭" data-en="Optional switch, off by default">Optional switch, off by default</small></span><i class="toggle-off"></i></div>
+              <div class="console-note"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg><span data-zh="全部保存在这台 Mac 上" data-en="Everything stays on this Mac">Everything stays on this Mac</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section privacy-section">
+      <div class="container privacy-layout">
+        <div class="privacy-story reveal">
+          <span class="section-kicker" data-zh="面板与键盘" data-en="Panel and keyboard">Panel and keyboard</span>
+          <h2 data-zh="打开、找到、粘贴，手不离键盘。" data-en="Open, find, paste, without leaving the keyboard.">Open, find, paste, without leaving the keyboard.</h2>
+          <p data-zh="全局快捷键只有两个：呼出面板和打开 aPaste Stack。其余操作都是面板内的本地快捷键，可以在设置里逐个改，也能一次全部重置。" data-en="Only two shortcuts are registered globally: open the panel and start aPaste Stack. Everything else is a local in-panel shortcut you can remap individually or reset all at once.">Only two shortcuts are registered globally: open the panel and start aPaste Stack. Everything else is a local in-panel shortcut you can remap individually or reset all at once.</p>
+          <ul class="check-list">
+            <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><span data-zh="方向键选择卡片，Return 粘贴，⌘C 复制并关闭" data-en="Arrow keys to select, Return to paste, ⌘C to copy and close">Arrow keys to select, Return to paste, ⌘C to copy and close</span></li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><span data-zh="⌘A 全选可见卡片，SHIFT + 方向键或点击选连续范围，多选后可一次粘贴或删除" data-en="⌘A selects visible cards, SHIFT with arrows or click extends a range, then paste or delete the whole selection at once">⌘A selects visible cards, SHIFT with arrows or click extends a range, then paste or delete the whole selection at once</span></li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><span data-zh="⌘Z 撤销刚才的删除，⌘F 进入搜索，⌘G 跳回内容在历史或 Pinboard 中的原位置" data-en="⌘Z undoes the last delete, ⌘F enters search, ⌘G jumps a result back to its place in history or its Pinboard">⌘Z undoes the last delete, ⌘F enters search, ⌘G jumps a result back to its place in history or its Pinboard</span></li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><span data-zh="粘贴模式可选：直接粘贴回原 App，或只写入系统剪贴板由你自己粘贴" data-en="Choose a paste mode: send it straight back to the previous app, or only write to the system clipboard and paste yourself">Choose a paste mode: send it straight back to the previous app, or only write to the system clipboard and paste yourself</span></li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><span data-zh="按住指定修饰键可临时去掉格式，也能设置为始终纯文本" data-en="Hold a modifier to strip formatting for one paste, or switch to always plain text">Hold a modifier to strip formatting for one paste, or switch to always plain text</span></li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><span data-zh="文本、链接和图片可以在独立窗口里编辑：富文本样式、颜色取色、图片旋转" data-en="Text, links, and images open in a dedicated editor: rich text styling, a color picker, and image rotation">Text, links, and images open in a dedicated editor: rich text styling, a color picker, and image rotation</span></li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><span data-zh="操作结果用 HUD 提示，可选声音反馈；面板跟随系统深浅色，也能固定为浅色或深色" data-en="Actions confirm with a HUD and optional sound. The panel follows the system appearance, or you can pin it to light or dark">Actions confirm with a HUD and optional sound. The panel follows the system appearance, or you can pin it to light or dark</span></li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><span data-zh="菜单栏图标可以隐藏（前提是设好呼出快捷键），有新版本时菜单里会出现提示" data-en="The menu bar icon can be hidden once a toggle shortcut is set, and a new release shows up as an entry in that menu">The menu bar icon can be hidden once a toggle shortcut is set, and a new release shows up as an entry in that menu</span></li>
+          </ul>
+        </div>
+
+        <div class="sync-visual reveal" aria-hidden="true">
+          <div class="sync-orbit orbit-one"></div>
+          <div class="sync-orbit orbit-two"></div>
+          <div class="device device-mac"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span>MacBook</span></div>
+          <div class="device device-imac"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span>Mac</span></div>
+          <div class="sync-core"><svg viewBox="0 0 24 24"><path d="M3 7h6l2 2h10v10H3Z"/><path d="M8 13h8M12 9v8"/></svg><strong data-zh="共享文件夹" data-en="Shared folder">Shared folder</strong><small data-zh="端到端加密可选" data-en="Optional encryption">Optional encryption</small></div>
+          <div class="sync-pulse pulse-one"></div>
+          <div class="sync-pulse pulse-two"></div>
+          <span class="provider provider-one">iCloud Drive</span>
+          <span class="provider provider-two">Dropbox</span>
+          <span class="provider provider-three">Syncthing</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section download-section" id="download">
+      <div class="container">
+        <div class="download-card reveal">
+          <div class="download-glow" aria-hidden="true"></div>
+          <div class="download-copy">
+            <span class="section-kicker" data-zh="获取 aPaste" data-en="Get aPaste">Get aPaste</span>
+            <h2 data-zh="少一点重复操作，多一点专注。" data-en="Less repetitive work. More focus.">Less repetitive work. More focus.</h2>
+            <p data-zh="需要 macOS 15 or later，免费使用，无需账号。发布页里 Apple Silicon 与 Intel 各有一个 DMG。" data-en="Requires macOS 15 or later. Free to use, no account. The releases page has one DMG for Apple Silicon and one for Intel.">Requires macOS 15 or later. Free to use, no account. The releases page has one DMG for Apple Silicon and one for Intel.</p>
+            <div class="download-buttons">
+              <a class="button button-primary button-light" href="https://github.com/AlliotTech/aPaste/releases/latest"><span data-zh="下载最新版本" data-en="Download the latest release">Download the latest release</span></a>
+              <a class="button button-ghost" href="install.html"><span data-zh="查看安装步骤" data-en="See install steps">See install steps</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-brand"><img src="../assets/apaste-logo.png" width="28" height="28" alt=""><span>aPaste</span><small data-zh="剪贴板历史，一搜即得。" data-en="Clipboard history, one search away.">Clipboard history, one search away.</small></div>
+      <div class="footer-links">
+        <a href="index.html" data-zh="首页" data-en="Home">Home</a>
+        <a href="https://github.com/AlliotTech/aPaste" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://github.com/AlliotTech/aPaste/releases" target="_blank" rel="noreferrer" data-zh="更新日志" data-en="Changelog">Changelog</a>
+        <a href="https://github.com/AlliotTech/aPaste/issues" target="_blank" rel="noreferrer" data-zh="反馈问题" data-en="Report an issue">Report an issue</a>
+      </div>
+      <p>© 2026 Alliot Tech.</p>
+    </div>
+  </footer>
+</body>
+</html>

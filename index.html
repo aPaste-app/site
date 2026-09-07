@@ -10,6 +10,9 @@
   <meta name="theme-color" id="meta-theme-dark" content="#0b0b0d" media="(prefers-color-scheme: dark)">
   <meta name="format-detection" content="telephone=no">
   <link rel="canonical" href="https://apaste.alliot.tech/">
+  <link rel="alternate" hreflang="zh-CN" href="https://apaste.alliot.tech/">
+  <link rel="alternate" hreflang="en" href="https://apaste.alliot.tech/en/">
+  <link rel="alternate" hreflang="x-default" href="https://apaste.alliot.tech/">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="aPaste">
@@ -32,11 +35,29 @@
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="icon-32.png" type="image/png" sizes="32x32">
   <link rel="preload" href="assets/hero-dark.webp" as="image" imagesrcset="assets/hero-960.webp 960w, assets/hero-1440.webp 1440w, assets/hero-dark.webp 1920w" imagesizes="(max-width: 980px) calc(100vw - 40px), 1180px" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=20260829-2">
+  <link rel="stylesheet" href="styles.css?v=20260907-2">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://apaste.alliot.tech/#website",
+          "url": "https://apaste.alliot.tech/",
+          "name": "aPaste",
+          "description": "aPaste 是一款 macOS 剪贴板管理器：快速搜索剪贴板历史，用 Pinboard 保存常用内容，全键盘操作，机密与临时内容默认不记录。",
+          "inLanguage": ["zh-CN", "en"],
+          "publisher": { "@id": "https://apaste.alliot.tech/#organization" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://apaste.alliot.tech/#organization",
+          "name": "Alliot Tech",
+          "url": "https://github.com/AlliotTech",
+          "sameAs": ["https://github.com/AlliotTech"]
+        },
+        {
+          "@type": "SoftwareApplication",
       "name": "aPaste",
       "alternateName": "aPaste 剪贴板管理器",
       "applicationCategory": "UtilitiesApplication",
@@ -70,6 +91,8 @@
         "机密与临时内容默认不记录",
         "可选的文件夹同步与端到端加密"
       ]
+        }
+      ]
     }
   </script>
   <script>
@@ -81,7 +104,7 @@
       document.documentElement.classList.add("js");
     })();
   </script>
-  <script src="script.js?v=20260829-2" defer></script>
+  <script src="script.js?v=20260907-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="skipLink">跳到主要内容</a>
@@ -99,13 +122,13 @@
         <a href="features.html" data-i18n="navFeatures">功能</a>
         <a href="#showcase" data-i18n="navShowcase">预览</a>
         <a href="#privacy" data-i18n="navPrivacy">隐私</a>
-        <a href="#install" data-i18n="navInstall">安装</a>
+        <a href="install.html" data-i18n="navInstall">安装</a>
         <a href="#faq" data-i18n="navFaq">常见问题</a>
         <a href="#download" data-i18n="navDownload">下载</a>
       </nav>
 
       <div class="nav-actions">
-        <button class="icon-button language-toggle" id="language-toggle" type="button" aria-label="Switch to English">EN</button>
+        <a class="icon-button language-toggle" id="language-toggle" href="en/" hreflang="en" aria-label="Switch to English">EN</a>
         <button class="icon-button theme-toggle" id="theme-toggle" type="button" aria-label="切换外观">
           <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></svg>
           <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
@@ -123,7 +146,7 @@
         <a href="features.html" data-i18n="navFeatures">功能</a>
         <a href="#showcase" data-i18n="navShowcase">预览</a>
         <a href="#privacy" data-i18n="navPrivacy">隐私</a>
-        <a href="#install" data-i18n="navInstall">安装</a>
+        <a href="install.html" data-i18n="navInstall">安装</a>
         <a href="#faq" data-i18n="navFaq">常见问题</a>
         <a href="#download" data-i18n="navDownload">下载</a>
       </nav>
@@ -388,37 +411,6 @@
       </div>
     </section>
 
-    <section class="section install-section" id="install">
-      <div class="container">
-        <div class="section-heading centered reveal">
-          <span class="section-kicker" data-i18n="installKicker">安装与权限</span>
-          <h2 data-i18n="installTitle">三步装好，两分钟搞定。</h2>
-          <p data-i18n="installCopy">aPaste 目前没有 Apple 开发者签名与公证，所以需要手动放行一次。下面每一步都说明了原因。</p>
-        </div>
-
-        <ol class="install-grid">
-          <li class="install-step reveal">
-            <span class="install-index">01</span>
-            <h3 data-i18n="installStepOneTitle">下载对应芯片的 DMG</h3>
-            <p data-i18n-html="installStepOneCopy">每个版本提供两个安装包：Apple Silicon 用 <code>-arm64</code>，Intel 用 <code>-x86_64</code>。不确定的话点左上角的苹果菜单 →「关于本机」看芯片型号。也可以用 Homebrew，它会自动选对架构。</p>
-          </li>
-          <li class="install-step reveal">
-            <span class="install-index">02</span>
-            <h3 data-i18n="installStepTwoTitle">移除隔离标记</h3>
-            <p data-i18n="installStepTwoCopy">把 aPaste.app 拖进「应用程序」后，macOS 可能提示「已损坏，无法打开」。这不是文件损坏，而是应用只做了本地签名、没有经过 Apple 公证，Gatekeeper 会拦下来。执行下面这条命令即可放行：</p>
-            <div class="code-line">
-              <code id="quarantine-command">xattr -dr com.apple.quarantine /Applications/aPaste.app</code>
-              <button class="copy-inline" id="copy-quarantine" type="button" data-i18n="copyCommand">复制命令</button>
-            </div>
-          </li>
-          <li class="install-step reveal">
-            <span class="install-index">03</span>
-            <h3 data-i18n="installStepThreeTitle">授予辅助功能权限</h3>
-            <p data-i18n="installStepThreeCopy">按 Return 直接粘贴回原 App 是通过模拟 ⌘V 实现的，需要在「系统设置 → 隐私与安全性 → 辅助功能」里勾选 aPaste。全局快捷键不依赖这个权限；不授权时仍可复制内容后自己粘贴。</p>
-          </li>
-        </ol>
-      </div>
-    </section>
 
     <section class="section faq-section" id="faq">
       <div class="container">
@@ -475,7 +467,7 @@
             <div class="download-note">
               <p class="note-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg><span data-i18n="noteQuarantine">首次打开若提示「已损坏」，运行一条命令即可解除</span></p>
               <p class="note-line"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg><span data-i18n="noteAccessibility">「粘贴回原 App」需要在系统设置中授权一次辅助功能</span></p>
-              <a class="note-link" href="#install"><span data-i18n="noteLink">查看安装步骤</span><span aria-hidden="true">→</span></a>
+              <a class="note-link" href="install.html"><span data-i18n="noteLink">查看安装步骤</span><span aria-hidden="true">→</span></a>
             </div>
           </div>
           <div class="terminal-card">

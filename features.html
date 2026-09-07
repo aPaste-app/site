@@ -5,9 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="aPaste 功能详解：可搜索的剪贴板历史、Pinboard、aPaste Stack、内容预览、捕获规则、快捷动作、两种面板形态，以及隐私控制与可选的文件夹同步。">
   <meta name="author" content="Alliot Tech">
+  <meta name="application-name" content="aPaste">
   <meta name="theme-color" id="meta-theme-light" content="#f5f5f7" media="(prefers-color-scheme: light)">
   <meta name="theme-color" id="meta-theme-dark" content="#0b0b0d" media="(prefers-color-scheme: dark)">
+  <meta name="format-detection" content="telephone=no">
   <link rel="canonical" href="https://apaste.alliot.tech/features.html">
+  <link rel="alternate" hreflang="zh-CN" href="https://apaste.alliot.tech/features.html">
+  <link rel="alternate" hreflang="en" href="https://apaste.alliot.tech/en/features.html">
+  <link rel="alternate" hreflang="x-default" href="https://apaste.alliot.tech/features.html">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="aPaste">
@@ -22,29 +27,52 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="aPaste 功能 — 剪贴板历史、Pinboard 与批量粘贴">
+  <meta property="og:image:type" content="image/jpeg">
   <meta name="twitter:description" content="可搜索的剪贴板历史、Pinboard、aPaste Stack、捕获规则、快捷动作、隐私控制与可选的文件夹同步。">
   <meta name="twitter:image" content="https://apaste.alliot.tech/og-image.jpg">
   <title>aPaste 功能 — macOS 剪贴板历史、Pinboard 与批量粘贴</title>
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="icon-32.png" type="image/png" sizes="32x32">
-  <link rel="stylesheet" href="styles.css?v=20260906-1">
+  <meta name="twitter:image:alt" content="aPaste 在 MacBook 上运行的剪贴板管理器界面">
+  <link rel="stylesheet" href="styles.css?v=20260907-2">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "aPaste 功能",
-      "description": "aPaste 的完整功能介绍：剪贴板历史、Pinboard、aPaste Stack、内容预览、捕获规则、快捷动作、面板形态、隐私控制与文件夹同步。",
-      "url": "https://apaste.alliot.tech/features.html",
-      "inLanguage": "zh-CN",
-      "isPartOf": { "@type": "WebSite", "name": "aPaste", "url": "https://apaste.alliot.tech/" },
-      "about": {
-        "@type": "SoftwareApplication",
-        "name": "aPaste",
-        "applicationCategory": "UtilitiesApplication",
-        "operatingSystem": "macOS 15 或更高版本",
-        "downloadUrl": "https://github.com/AlliotTech/aPaste/releases/latest",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-      }
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://apaste.alliot.tech/#website",
+          "url": "https://apaste.alliot.tech/",
+          "name": "aPaste",
+          "description": "aPaste 是一款 macOS 剪贴板管理器：快速搜索剪贴板历史，用 Pinboard 保存常用内容，全键盘操作，机密与临时内容默认不记录。",
+          "inLanguage": ["zh-CN", "en"],
+          "publisher": { "@id": "https://apaste.alliot.tech/#organization" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://apaste.alliot.tech/#organization",
+          "name": "Alliot Tech",
+          "url": "https://github.com/AlliotTech",
+          "sameAs": ["https://github.com/AlliotTech"]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://apaste.alliot.tech/features.html#webpage",
+          "name": "aPaste 功能",
+          "description": "aPaste 的完整功能介绍：剪贴板历史、Pinboard、aPaste Stack、内容预览、捕获规则、快捷动作、面板形态、隐私控制与文件夹同步。",
+          "url": "https://apaste.alliot.tech/features.html",
+          "inLanguage": "zh-CN",
+          "isPartOf": { "@id": "https://apaste.alliot.tech/#website" },
+          "about": {
+            "@type": "SoftwareApplication",
+            "name": "aPaste",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "macOS 15 或更高版本",
+            "downloadUrl": "https://github.com/AlliotTech/aPaste/releases/latest",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+          }
+        }
+      ]
     }
   </script>
   <script>
@@ -52,11 +80,10 @@
       var stored = null;
       try { stored = localStorage.getItem("apaste-theme"); } catch (error) { stored = null; }
       document.documentElement.dataset.theme = stored ||
-        (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
       document.documentElement.classList.add("js");
     })();
   </script>
-  <script src="features.js?v=20260906-1" defer></script>
+  <script src="features.js?v=20260907-3" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-zh="跳到主要内容" data-en="Skip to main content">跳到主要内容</a>
@@ -74,13 +101,13 @@
         <a href="features.html" aria-current="page" data-zh="功能" data-en="Features">功能</a>
         <a href="index.html#showcase" data-zh="预览" data-en="Preview">预览</a>
         <a href="index.html#privacy" data-zh="隐私" data-en="Privacy">隐私</a>
-        <a href="index.html#install" data-zh="安装" data-en="Install">安装</a>
+        <a href="install.html" data-zh="安装" data-en="Install">安装</a>
         <a href="index.html#faq" data-zh="常见问题" data-en="FAQ">常见问题</a>
         <a href="index.html#download" data-zh="下载" data-en="Download">下载</a>
       </nav>
 
       <div class="nav-actions">
-        <button class="icon-button language-toggle" id="language-toggle" type="button" aria-label="Switch to English">EN</button>
+        <a class="icon-button language-toggle" id="language-toggle" href="en/features.html" hreflang="en" aria-label="Switch to English">EN</a>
         <button class="icon-button theme-toggle" id="theme-toggle" type="button" aria-label="切换外观">
           <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></svg>
           <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
@@ -98,7 +125,7 @@
         <a href="features.html" data-zh="功能" data-en="Features">功能</a>
         <a href="index.html#showcase" data-zh="预览" data-en="Preview">预览</a>
         <a href="index.html#privacy" data-zh="隐私" data-en="Privacy">隐私</a>
-        <a href="index.html#install" data-zh="安装" data-en="Install">安装</a>
+        <a href="install.html" data-zh="安装" data-en="Install">安装</a>
         <a href="index.html#faq" data-zh="常见问题" data-en="FAQ">常见问题</a>
         <a href="index.html#download" data-zh="下载" data-en="Download">下载</a>
       </nav>
@@ -113,7 +140,7 @@
       <div class="container">
         <div class="section-heading centered reveal">
           <span class="section-kicker" data-zh="功能一览" data-en="All features">功能一览</span>
-          <h2 data-zh="把复制过的内容，变成自己的工具箱。" data-en="Everything you copy, within reach.">把复制过的内容，变成自己的工具箱。</h2>
+          <h1 data-zh="把复制过的内容，变成自己的工具箱。" data-en="Everything you copy, within reach.">把复制过的内容，变成自己的工具箱。</h1>
           <p data-zh="从自动记录到精准搜索，从常用内容到批量粘贴。下面是 aPaste 目前提供的全部能力。" data-en="From automatic capture to precise search, from reusable snippets to batch pasting. Here is everything aPaste does today.">从自动记录到精准搜索，从常用内容到批量粘贴。下面是 aPaste 目前提供的全部能力。</p>
         </div>
 
@@ -272,7 +299,7 @@
             <p data-zh="需要 macOS 15 或更高版本，免费使用，无需账号。发布页里 Apple Silicon 与 Intel 各有一个 DMG。" data-en="Requires macOS 15 or later. Free to use, no account. The releases page has one DMG for Apple Silicon and one for Intel.">需要 macOS 15 或更高版本，免费使用，无需账号。发布页里 Apple Silicon 与 Intel 各有一个 DMG。</p>
             <div class="download-buttons">
               <a class="button button-primary button-light" href="https://github.com/AlliotTech/aPaste/releases/latest"><span data-zh="下载最新版本" data-en="Download the latest release">下载最新版本</span></a>
-              <a class="button button-ghost" href="index.html#install"><span data-zh="查看安装步骤" data-en="See install steps">查看安装步骤</span></a>
+              <a class="button button-ghost" href="install.html"><span data-zh="查看安装步骤" data-en="See install steps">查看安装步骤</span></a>
             </div>
           </div>
         </div>

@@ -341,8 +341,7 @@ const showcaseImage = document.querySelector("#showcase-image");
 const showcaseFrame = document.querySelector("#showcase-panel");
 const showcaseTabs = [...document.querySelectorAll(".showcase-tab")];
 
-let activeLanguage = storage.read("apaste-language") ||
-  (navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en");
+let activeLanguage = document.documentElement.lang.startsWith("zh") ? "zh" : "en";
 
 function applyLanguage(language) {
   const dictionary = translations[language];
@@ -427,9 +426,6 @@ desktopQuery.addEventListener("change", (event) => {
   if (event.matches) setMobileNav(false);
 });
 
-languageToggle.addEventListener("click", () => {
-  applyLanguage(activeLanguage === "zh" ? "en" : "zh");
-});
 
 const panelImage = document.querySelector("#panel-image");
 const metaThemeLight = document.querySelector("#meta-theme-light");

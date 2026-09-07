@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="aPaste is a keyboard-first clipboard manager for macOS: search your clipboard history, keep reusable items on Pinboards, and skip confidential content by default.">
+  <meta name="author" content="Alliot Tech">
+  <meta name="application-name" content="aPaste">
+  <meta name="theme-color" id="meta-theme-light" content="#f5f5f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" id="meta-theme-dark" content="#0b0b0d" media="(prefers-color-scheme: dark)">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="canonical" href="https://apaste.alliot.tech/en/">
+  <link rel="alternate" hreflang="zh-CN" href="https://apaste.alliot.tech/">
+  <link rel="alternate" hreflang="en" href="https://apaste.alliot.tech/en/">
+  <link rel="alternate" hreflang="x-default" href="https://apaste.alliot.tech/">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="aPaste">
+  <meta property="og:url" content="https://apaste.alliot.tech/en/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="zh_CN">
+  <meta property="og:title" content="aPaste — Clipboard history, one search away">
+  <meta property="og:description" content="aPaste is a keyboard-first clipboard manager for macOS: search your clipboard history, keep reusable items on Pinboards, and skip confidential content by default.">
+  <meta property="og:image" content="https://apaste.alliot.tech/og-image.jpg">
+  <meta property="og:image:alt" content="aPaste clipboard manager running on a MacBook">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="aPaste — Clipboard history, one search away">
+  <meta name="twitter:description" content="aPaste is a keyboard-first clipboard manager for macOS: search your clipboard history, keep reusable items on Pinboards, and skip confidential content by default.">
+  <meta name="twitter:image" content="https://apaste.alliot.tech/og-image.jpg">
+  <meta name="twitter:image:alt" content="aPaste clipboard manager running on a MacBook">
+  <title>aPaste — Clipboard history, one search away</title>
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" href="../icon-32.png" type="image/png" sizes="32x32">
+  <link rel="preload" href="../assets/hero-dark.webp" as="image" imagesrcset="../assets/hero-960.webp 960w, ../assets/hero-1440.webp 1440w, ../assets/hero-dark.webp 1920w" imagesizes="(max-width: 980px) calc(100vw - 40px), 1180px" fetchpriority="high">
+  <link rel="stylesheet" href="../styles.css?v=20260907-2">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://apaste.alliot.tech/#website",
+          "url": "https://apaste.alliot.tech/en/",
+          "name": "aPaste",
+          "description": "aPaste is a keyboard-first clipboard manager for macOS: search your clipboard history, keep reusable items on Pinboards, and skip confidential content by default.",
+          "inLanguage": "en",
+          "publisher": { "@id": "https://apaste.alliot.tech/#organization" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://apaste.alliot.tech/#organization",
+          "name": "Alliot Tech",
+          "url": "https://github.com/AlliotTech",
+          "sameAs": ["https://github.com/AlliotTech"]
+        },
+        {
+          "@type": "SoftwareApplication",
+      "name": "aPaste",
+      "alternateName": "aPaste clipboard manager",
+      "applicationCategory": "UtilitiesApplication",
+      "applicationSubCategory": "Clipboard manager",
+      "operatingSystem": "macOS 15 or later",
+      "inLanguage": "en",
+      "description": "aPaste is a keyboard-first clipboard manager for macOS: search your clipboard history, keep reusable items on Pinboards, and skip confidential content by default.",
+      "image": "https://apaste.alliot.tech/og-image.jpg",
+      "screenshot": "https://apaste.alliot.tech/assets/hero-dark.webp",
+      "url": "https://apaste.alliot.tech/",
+      "downloadUrl": "https://github.com/AlliotTech/aPaste/releases/latest",
+      "codeRepository": "https://github.com/AlliotTech/aPaste",
+      "sameAs": ["https://github.com/AlliotTech/aPaste"],
+      "author": {
+        "@type": "Organization",
+        "name": "Alliot Tech",
+        "url": "https://github.com/AlliotTech"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Searchable clipboard history for text, links, images, and files",
+        "Pinboards for reusable clipboard content",
+        "aPaste Stack for collecting and pasting items in order",
+        "Rich previews for text, colors, links, images, and files",
+        "Capture rules that ignore or pin new content automatically",
+        "Nine quick actions for transforming content before pasting",
+        "Confidential and transient content skipped by default",
+        "Optional folder sync with end-to-end encryption"
+      ]
+        }
+      ]
+    }
+  </script>
+  <script>
+    (function () {
+      var stored = null;
+      try { stored = localStorage.getItem("apaste-theme"); } catch (error) { stored = null; }
+      document.documentElement.dataset.theme = stored ||
+        (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+      document.documentElement.classList.add("js");
+    })();
+  </script>
+  <script src="../script.js?v=20260907-1" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skipLink">Skip to main content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="../assets/apaste-logo.png" alt="" width="34" height="34">
+        </span>
+        <span>aPaste</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation" data-i18n-aria="navMainLabel">
+        <a href="features.html" data-i18n="navFeatures">Features</a>
+        <a href="#showcase" data-i18n="navShowcase">Preview</a>
+        <a href="#privacy" data-i18n="navPrivacy">Privacy</a>
+        <a href="install.html" data-i18n="navInstall">Install</a>
+        <a href="#faq" data-i18n="navFaq">FAQ</a>
+        <a href="#download" data-i18n="navDownload">Download</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="icon-button language-toggle" id="language-toggle" href="../" hreflang="zh-CN" aria-label="切换为中文">中</a>
+        <button class="icon-button theme-toggle" id="theme-toggle" type="button" aria-label="Toggle appearance">
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+        </button>
+        <a class="nav-download" href="https://github.com/AlliotTech/aPaste/releases/latest" data-i18n="navGet">Get aPaste</a>
+        <button class="icon-button nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+          <svg class="menu-open-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="menu-close-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav" id="mobile-nav" hidden>
+      <nav aria-label="Mobile navigation" data-i18n-aria="navMobileLabel">
+        <a href="features.html" data-i18n="navFeatures">Features</a>
+        <a href="#showcase" data-i18n="navShowcase">Preview</a>
+        <a href="#privacy" data-i18n="navPrivacy">Privacy</a>
+        <a href="install.html" data-i18n="navInstall">Install</a>
+        <a href="#faq" data-i18n="navFaq">FAQ</a>
+        <a href="#download" data-i18n="navDownload">Download</a>
+      </nav>
+      <a class="button button-primary mobile-nav-cta" href="https://github.com/AlliotTech/aPaste/releases/latest">
+        <span data-i18n="downloadLatest">Download aPaste</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-orb hero-orb-one" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-two" aria-hidden="true"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+
+      <div class="container hero-content reveal">
+        <div class="eyebrow">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span data-i18n="heroEyebrow">aPaste for macOS 15+</span>
+        </div>
+        <h1>
+          <span data-i18n="heroTitleLead">Your clipboard history,</span>
+          <span class="gradient-text" data-i18n="heroTitleAccent">one search away.</span>
+        </h1>
+        <p class="hero-copy" data-i18n="heroCopy">Press ⌃` to open the panel and type to find anything you copied. Keep reusable items on Pinboards, then press Return to paste straight back into the app you were using.</p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://github.com/AlliotTech/aPaste/releases/latest">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 20h14"/></svg>
+            <span data-i18n="downloadLatest">Download aPaste</span>
+          </a>
+          <a class="button button-secondary" href="https://github.com/AlliotTech/aPaste" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3.3-.4 6.8-1.6 6.8-7A5.4 5.4 0 0 0 19.4 4 5 5 0 0 0 19.3.5S18.2.1 15 1.8a13.4 13.4 0 0 0-7 0C4.8.1 3.7.5 3.7.5A5 5 0 0 0 3.6 4a5.4 5.4 0 0 0-1.4 3.7c0 5.4 3.5 6.6 6.8 7A4.8 4.8 0 0 0 8 18v4"/><path d="M8 19c-3 .9-3-1.5-4-2"/></svg>
+            <span>GitHub</span>
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="heroMetaLocal">Stored on your Mac</span></span>
+          <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="heroMetaAccount">No account required</span></span>
+          <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="heroMetaFree">Free to use</span></span>
+        </div>
+      </div>
+
+      <div class="container hero-visual reveal reveal-late">
+        <div class="hero-shortcut">
+          <span data-i18n="openWith">Press</span>
+          <kbd>⌃</kbd><span aria-hidden="true">+</span><kbd class="kbd-tick" data-i18n-title="backtickName" title="Backtick (the key below Esc)">`</kbd>
+          <span data-i18n="openInstantly">to open aPaste</span>
+        </div>
+        <div class="product-stage">
+          <div class="stage-glow" aria-hidden="true"></div>
+          <img src="../assets/hero-dark.webp" srcset="../assets/hero-960.webp 960w, ../assets/hero-1440.webp 1440w, ../assets/hero-dark.webp 1920w" sizes="(max-width: 980px) calc(100vw - 40px), 1180px" width="1920" height="1264" alt="aPaste clipboard manager running on a MacBook" fetchpriority="high" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="aPaste features">
+      <div class="container trust-grid reveal">
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M8 9h8M8 13h5"/></svg>
+          <div><strong data-i18n="trustKeyboardTitle">Keyboard-first</strong><span data-i18n="trustKeyboardCopy">Open, search, select and paste without the mouse</span></div>
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+          <div><strong data-i18n="trustPrivacyTitle">Private by default</strong><span data-i18n="trustPrivacyCopy">Confidential and transient content is never recorded</span></div>
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h6l2 2h10v10H3Z"/><path d="M3 7V5h7l2 2"/></svg>
+          <div><strong data-i18n="trustSyncTitle">Folder sync</strong><span data-i18n="trustSyncCopy">Any shared folder, encryption optional</span></div>
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg>
+          <div><strong data-i18n="trustNativeTitle">Menu bar app</strong><span data-i18n="trustNativeCopy">No Dock icon, and the menu bar icon can be hidden</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section features-section" id="features">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker" data-i18n="featuresKicker">Core features</span>
+          <h2 data-i18n="featuresTitle">Search it. Keep it. Reuse it.</h2>
+          <p data-i18n="featuresCopy">History becomes searchable cards and reusable items live on Pinboards. aPaste Stack covers the times you need to paste several things in a row, and quick actions clean the content up first.</p>
+        </div>
+
+        <div class="bento-grid">
+          <article class="bento-card bento-wide search-card reveal">
+            <div class="card-copy">
+              <span class="feature-icon feature-icon-blue" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></span>
+              <h3 data-i18n="featureSearchTitle">Search as you type.</h3>
+              <p data-i18n="featureSearchCopy">Filter by content type (text, link, image, file), date or source app. With image text recognition on, words inside screenshots are searchable too. Arrow keys to select, Return to paste.</p>
+            </div>
+            <div class="panel-visual" aria-hidden="true">
+              <img id="panel-image" src="../assets/panel-cards-dark.webp" data-src-dark="../assets/panel-cards-dark.webp" data-src-light="../assets/panel-cards-light.webp" width="1800" height="324" alt="" loading="lazy" decoding="async">
+            </div>
+          </article>
+
+          <article class="bento-card pinboard-card reveal">
+            <div class="card-copy">
+              <span class="feature-icon feature-icon-violet" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4h10v16l-5-3-5 3Z"/></svg></span>
+              <h3 data-i18n="featurePinTitle">Keep reusable items on Pinboards.</h3>
+              <p data-i18n="featurePinCopy">Snippets, addresses and reply templates live on colour-coded Pinboards, switched with ⌘← / ⌘→. Clearing history never touches them.</p>
+            </div>
+            <div class="pinboard-stack" aria-hidden="true">
+              <div class="pin-card pin-orange"><span data-i18n="pinTagApi">api</span><strong>Authorization</strong><small data-i18n="pinNoteToken">Bearer ••••••••</small></div>
+              <div class="pin-card pin-blue"><span data-i18n="pinTagSupport">support</span><strong data-i18n="pinTitleReply">Thanks for reaching out</strong><small data-i18n="pinNoteTemplate">Reply template</small></div>
+              <div class="pin-card pin-pink"><span data-i18n="pinTagBrand">brand</span><strong>#6C5CE7</strong><small data-i18n="pinNoteColor">Primary violet</small></div>
+            </div>
+          </article>
+
+          <article class="bento-card stack-card reveal">
+            <div class="card-copy">
+              <span class="feature-icon feature-icon-orange" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="6" rx="2"/><rect x="4" y="14" width="16" height="6" rx="2"/></svg></span>
+              <h3 data-i18n="featureStackTitle">aPaste Stack: collect first, paste in order.</h3>
+              <p data-i18n="featureStackCopy">Press ⌘⇧C to open the Stack, copy several items in a row, then paste them out one by one in order — ideal for filling forms and assembling tables.</p>
+            </div>
+            <div class="stack-visual" aria-hidden="true">
+              <div class="stack-chip"><em>1</em><strong data-i18n="stackItemName">Jane Doe</strong></div>
+              <div class="stack-chip"><em>2</em><strong>13800000000</strong></div>
+              <div class="stack-chip"><em>3</em><strong>zhangsan@example.com</strong></div>
+              <div class="stack-hint"><kbd>⌘</kbd><kbd>⇧</kbd><kbd>C</kbd></div>
+            </div>
+          </article>
+
+          <article class="bento-card preview-card reveal">
+            <div class="card-copy">
+              <span class="feature-icon feature-icon-cyan" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3Z"/><path d="m3 15 5-5 4 4 3-3 6 6"/><circle cx="16.5" cy="8.5" r="1.5"/></svg></span>
+              <h3 data-i18n="featurePreviewTitle">Four content types, four kinds of preview.</h3>
+              <p data-i18n="featurePreviewCopy">Text keeps its rich formatting and detected colour values, links can fetch page titles and images (that network lookup is switchable), and images and files each get their own card.</p>
+            </div>
+            <div class="preview-window" aria-hidden="true">
+              <img src="../assets/showcase-color-dark.webp" width="1800" height="585" alt="" loading="lazy" decoding="async">
+            </div>
+          </article>
+
+          <article class="bento-card rules-card reveal">
+            <div class="card-copy">
+              <span class="feature-icon feature-icon-green" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/><circle cx="8" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="12" cy="18" r="2"/></svg></span>
+              <h3 data-i18n="featureRulesTitle">Let rules organize for you.</h3>
+              <p data-i18n="featureRulesCopy">Ignore new captures automatically, or pin them to a specific Pinboard, based on content type, source app, text (regex supported), URL host, file extension or size range. Rules can be dry-run against your existing history first.</p>
+            </div>
+            <div class="rule-builder" aria-hidden="true">
+              <div class="rule-row"><span class="rule-label">IF</span><span class="rule-chip" data-i18n="ruleChipApp">Source app</span><span class="rule-value">Xcode</span></div>
+              <div class="rule-row"><span class="rule-label">AND</span><span class="rule-chip" data-i18n="ruleChipText">Text contains</span><span class="rule-value">TODO</span></div>
+              <div class="rule-arrow" aria-hidden="true">↓</div>
+              <div class="rule-result"><span class="rule-pin"></span><span data-i18n="ruleResultPin">Pin to</span><strong data-i18n="ruleResultBoard">Development</strong></div>
+            </div>
+          </article>
+
+          <article class="bento-card actions-card reveal">
+            <div class="card-copy">
+              <span class="feature-icon feature-icon-pink" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6Z"/><path d="m19 15 .8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8Z"/></svg></span>
+              <h3 data-i18n="featureActionsTitle">Make it useful before you paste.</h3>
+              <p data-i18n="featureActionsCopy">Nine quick actions live in the card's right-click menu; the result goes straight to your clipboard.</p>
+            </div>
+            <div class="action-menu" aria-hidden="true">
+              <div class="action-menu-header"><span data-i18n="actionsMenuTitle">Quick actions</span><em>9</em></div>
+              <div><span>{ }</span><strong data-i18n="actionPrettyJson">Pretty-print JSON</strong></div>
+              <div><span>{ }</span><strong data-i18n="actionMinifyJson">Minify JSON</strong></div>
+              <div><span>↗</span><strong data-i18n="actionTracking">Remove tracking parameters</strong></div>
+              <div><span>MD</span><strong data-i18n="actionMarkdown">Copy as Markdown link</strong></div>
+              <div><span>Aa</span><strong data-i18n="actionRecognized">Copy recognized text</strong></div>
+              <div><span>⇥</span><strong data-i18n="actionTransform">Case / one line / trim whitespace</strong></div>
+            </div>
+          </article>
+
+          <article class="bento-card layout-card reveal">
+            <div class="card-copy">
+              <span class="feature-icon feature-icon-blue" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M10 4v16"/></svg></span>
+              <h3 data-i18n="featureLayoutTitle">Two panel layouts, your pick.</h3>
+              <p data-i18n="featureLayoutCopy">The bottom panel hugs the edge of the screen for horizontal scanning; Command Center is a resizable window with a list on the left and details on the right, better for long content.</p>
+            </div>
+            <div class="layout-visual" aria-hidden="true">
+              <div class="layout-mock layout-mock-bottom"><span></span><span></span><span></span><span></span><em data-i18n="layoutBottomName">Bottom panel</em></div>
+              <div class="layout-mock layout-mock-center"><i></i><b></b><em data-i18n="layoutCenterName">Command Center</em></div>
+            </div>
+          </article>
+
+          <article class="bento-card bento-wide privacy-card reveal">
+            <div class="privacy-copy card-copy">
+              <span class="feature-icon feature-icon-cyan" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="M9 12h6M12 9v6"/></svg></span>
+              <h3 data-i18n="featurePrivacyTitle">Confidential and transient content is skipped.</h3>
+              <p data-i18n="featurePrivacyCopy">Content marked confidential by password managers, and transient clipboard data, are ignored out of the box, and you can stop capture entirely for any app. Hiding contents from screenshots and recordings is a separate switch that is off by default — turn it on when you need it.</p>
+              <a href="features.html" class="text-link"><span data-i18n="learnFeatures">See all features</span><span aria-hidden="true">→</span></a>
+            </div>
+            <div class="privacy-console" aria-hidden="true">
+              <div class="console-top"><span></span><span></span><span></span><strong data-i18n="consoleTitle">Privacy</strong></div>
+              <div class="console-row"><span><b data-i18n="consoleConfidentialTitle">Confidential content</b><small data-i18n="consoleConfidentialCopy">Skip password managers and concealed data</small></span><i class="toggle-on"></i></div>
+              <div class="console-row"><span><b data-i18n="consoleTransientTitle">Transient content</b><small data-i18n="consoleTransientCopy">Skip clipboard items marked as temporary</small></span><i class="toggle-on"></i></div>
+              <div class="console-row"><span><b data-i18n="consoleCaptureTitle">Hide from screen capture</b><small data-i18n="consoleCaptureCopy">Optional switch, off by default</small></span><i class="toggle-off"></i></div>
+              <div class="console-note"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg><span data-i18n="consoleNote">Everything stays on this Mac</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section showcase-section" id="showcase">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <span class="section-kicker" data-i18n="showcaseKicker">Interface preview</span>
+          <h2 data-i18n="showcaseTitle">The right view for every kind of copy.</h2>
+          <p data-i18n="showcaseCopy">Scan quickly in the panel, then open a full preview when you need more context.</p>
+        </div>
+
+        <div class="showcase reveal">
+          <div class="showcase-tabs" role="tablist" aria-label="Choose a preview" data-i18n-aria="showcaseTabsLabel">
+            <button class="showcase-tab active" type="button" role="tab" id="showcase-tab-cards" aria-controls="showcase-panel" aria-selected="true" data-src="../assets/showcase-cards-dark.webp" data-alt-key="showcaseAltCards" data-i18n="showcaseTabCards">Rich cards</button>
+            <button class="showcase-tab" type="button" role="tab" id="showcase-tab-link" aria-controls="showcase-panel" aria-selected="false" tabindex="-1" data-src="../assets/showcase-link-dark.webp" data-alt-key="showcaseAltLink" data-i18n="showcaseTabLink">Link preview</button>
+            <button class="showcase-tab" type="button" role="tab" id="showcase-tab-color" aria-controls="showcase-panel" aria-selected="false" tabindex="-1" data-src="../assets/showcase-color-dark.webp" data-alt-key="showcaseAltColor" data-i18n="showcaseTabColor">Colour preview</button>
+            <button class="showcase-tab" type="button" role="tab" id="showcase-tab-light" aria-controls="showcase-panel" aria-selected="false" tabindex="-1" data-src="../assets/showcase-cards-light.webp" data-alt-key="showcaseAltLight" data-i18n="showcaseTabLight">Light mode</button>
+          </div>
+          <div class="showcase-frame" id="showcase-panel" role="tabpanel" aria-labelledby="showcase-tab-cards" tabindex="0">
+            <img id="showcase-image" src="../assets/showcase-cards-dark.webp" width="1800" height="352" alt="Clipboard cards in the aPaste panel" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section flow-section">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <span class="section-kicker" data-i18n="flowKicker">How it works</span>
+          <h2 data-i18n="flowTitle">From search to paste, all on the keyboard.</h2>
+        </div>
+        <div class="flow-grid">
+          <article class="flow-step reveal"><span class="step-number">01</span><div class="step-icon"><svg viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></div><h3 data-i18n="flowCopyTitle">Copy as usual</h3><p data-i18n="flowCopyCopy">Supported content lands in your history automatically; anything excluded by privacy settings or capture rules is never recorded.</p></article>
+          <article class="flow-step reveal"><span class="step-number">02</span><div class="step-icon"><span class="mini-keys"><kbd>⌃</kbd><b>+</b><kbd class="kbd-tick">`</kbd></span></div><h3 data-i18n="flowFindTitle">Open and search</h3><p data-i18n="flowFindCopy">Hit the shortcut, type a keyword, or switch Pinboards with ⌘← / ⌘→.</p></article>
+          <article class="flow-step reveal"><span class="step-number">03</span><div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 5-5m-5 5-5-5"/><path d="M5 21h14"/></svg></div><h3 data-i18n="flowPasteTitle">Press Return to paste</h3><p data-i18n="flowPasteCopy">Select an item and press Return to paste it back into the app you just left (needs Accessibility permission).</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section privacy-section" id="privacy">
+      <div class="container privacy-layout">
+        <div class="privacy-story reveal">
+          <span class="section-kicker" data-i18n="privacyKicker">Privacy and sync</span>
+          <h2 data-i18n="privacyTitle">Local first. Sync only when you choose.</h2>
+          <p data-i18n="privacyCopy">aPaste has no account and no cloud service of its own. Data leaves your Mac only after you pick a shared folder yourself — put it inside iCloud Drive, Dropbox or a Syncthing directory and several Macs share one history.</p>
+          <ul class="check-list">
+            <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="privacyPointOne">Confidential (password manager) and transient content is never recorded</span></li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="privacyPointTwo">Stop capture completely for any app, or pause capture temporarily</span></li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="privacyPointThree">Folder sync can be end-to-end encrypted; off by default</span></li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="privacyPointFour">Link previews are the only network feature, and they can be switched off</span></li>
+            <li><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg><span data-i18n="privacyPointFive">History can auto-clean by age or item count, or be erased in one click</span></li>
+          </ul>
+        </div>
+
+        <div class="sync-visual reveal" aria-hidden="true">
+          <div class="sync-orbit orbit-one"></div>
+          <div class="sync-orbit orbit-two"></div>
+          <div class="device device-mac"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span>MacBook</span></div>
+          <div class="device device-imac"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span>Mac</span></div>
+          <div class="sync-core"><svg viewBox="0 0 24 24"><path d="M3 7h6l2 2h10v10H3Z"/><path d="M8 13h8M12 9v8"/></svg><strong data-i18n="syncCoreTitle">Shared folder</strong><small data-i18n="syncCoreNote">End-to-end encryption optional</small></div>
+          <div class="sync-pulse pulse-one"></div>
+          <div class="sync-pulse pulse-two"></div>
+          <span class="provider provider-one">iCloud Drive</span>
+          <span class="provider provider-two">Dropbox</span>
+          <span class="provider provider-three">Syncthing</span>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section faq-section" id="faq">
+      <div class="container">
+        <div class="section-heading centered reveal">
+          <span class="section-kicker" data-i18n="faqKicker">FAQ</span>
+          <h2 data-i18n="faqTitle">What people ask before and after installing.</h2>
+        </div>
+
+        <div class="faq-list reveal">
+          <details class="faq-item">
+            <summary data-i18n="faqOneQ">macOS says "aPaste is damaged and can't be opened". Now what?</summary>
+            <p data-i18n-html="faqOneA">The app is not notarized, and that is the misleading message Gatekeeper shows. Run <code>xattr -dr com.apple.quarantine /Applications/aPaste.app</code> in Terminal and it opens normally — the download itself is intact.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faqTwoQ">Why does it need Accessibility permission?</summary>
+            <p data-i18n="faqTwoA">Only for pasting back into the frontmost app, which aPaste does by simulating ⌘V. Without the permission everything else — capture, search, Pinboards, copying to the clipboard — works as usual.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faqThreeQ">Where is my data, and does it get uploaded?</summary>
+            <p data-i18n="faqThreeA">History and Pinboards live in a local database on your Mac. Apart from link previews (switchable), aPaste makes no network requests, and it only writes sync data into a shared folder you selected yourself.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faqFourQ">How do I sync several Macs?</summary>
+            <p data-i18n="faqFourA">Point both Macs at the same shared folder, for example inside iCloud Drive, Dropbox or a Syncthing directory. aPaste just writes monthly NDJSON shards plus asset files; the syncing itself is done by the tool you chose. Enable end-to-end encryption with a passphrase if you want more protection.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faqFiveQ">Which content types are supported?</summary>
+            <p data-i18n="faqFiveA">Four: text, links, images and files. Text items additionally get rich-text previews and detected colour values, and images can be searched by recognized text once OCR is enabled.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faqSixQ">Can I stop it recording for a while?</summary>
+            <p data-i18n="faqSixA">Yes. Pause capture from the menu bar, add apps to the ignore list in Settings, or let capture rules ignore items automatically by content type, text, URL, extension and more.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faqSevenQ">How do I delete everything?</summary>
+            <p data-i18n="faqSevenA">Settings can erase the history in one click, and can auto-clean by age or item count. After deleting the app, remove the aPaste data files from your sync folder as well.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section download-section" id="download">
+      <div class="container">
+        <div class="download-card reveal">
+          <div class="download-glow" aria-hidden="true"></div>
+          <div class="download-copy">
+            <span class="section-kicker" data-i18n="downloadKicker">Ready when you are</span>
+            <h2 data-i18n="downloadTitle">Download aPaste and get going.</h2>
+            <p data-i18n="downloadCopy">Requires macOS 15 or later. The release page has one DMG for Apple Silicon and one for Intel — pick the one matching your chip, or let Homebrew decide.</p>
+            <div class="download-buttons">
+              <a class="button button-primary button-light" href="https://github.com/AlliotTech/aPaste/releases/latest"><span data-i18n="downloadMac">Download latest release</span></a>
+              <a class="button button-ghost" href="https://github.com/AlliotTech/aPaste/releases" target="_blank" rel="noreferrer"><span data-i18n="viewReleases">Changelog and older releases</span></a>
+            </div>
+            <div class="download-note">
+              <p class="note-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg><span data-i18n="noteQuarantine">If macOS calls aPaste "damaged" on first launch, one command clears it</span></p>
+              <p class="note-line"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg><span data-i18n="noteAccessibility">Pasting back into your previous app needs a one-time Accessibility permission</span></p>
+              <a class="note-link" href="install.html"><span data-i18n="noteLink">See the install steps</span><span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <div class="terminal-card">
+            <div class="terminal-header"><span></span><span></span><span></span><strong>Terminal</strong></div>
+            <pre><code id="brew-command">brew tap alliottech/tap
+brew install --cask alliottech/tap/apaste
+xattr -dr com.apple.quarantine /Applications/aPaste.app</code></pre>
+            <button class="copy-command" id="copy-command" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3"/></svg>
+              <span data-i18n="copyCommand">Copy command</span>
+            </button>
+          </div>
+        </div>
+        <p class="requirements" data-i18n="requirements">Apple Silicon and Intel ship as separate builds — not a universal binary.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-brand"><img src="../assets/apaste-logo.png" width="28" height="28" alt=""><span>aPaste</span><small data-i18n="footerTagline">Clipboard history, one search away.</small></div>
+      <div class="footer-links">
+        <a href="https://github.com/AlliotTech/aPaste" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://github.com/AlliotTech/aPaste/releases" target="_blank" rel="noreferrer" data-i18n="footerReleases">Changelog</a>
+        <a href="https://github.com/AlliotTech/aPaste/issues" target="_blank" rel="noreferrer" data-i18n="footerIssues">Report an issue</a>
+        <a href="https://github.com/AlliotTech/aPaste/blob/master/README.md" target="_blank" rel="noreferrer">README</a>
+        <a href="https://github.com/AlliotTech/aPaste/blob/master/README.zh-CN.md" target="_blank" rel="noreferrer">Chinese README</a>
+      </div>
+      <p>© 2026 Alliot Tech.</p>
+    </div>
+  </footer>
+
+  <noscript><div class="noscript">Enable JavaScript for theme switching, previews, and other interactive features.</div></noscript>
+</body>
+</html>

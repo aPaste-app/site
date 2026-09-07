@@ -638,6 +638,7 @@ html[data-theme="light"] .product-stage {
   text-align: center;
 }
 
+.section-heading h1,
 .section-heading h2,
 .privacy-story h2,
 .download-copy h2 {
@@ -1803,6 +1804,7 @@ body.nav-open {
   letter-spacing: 0.18em;
 }
 
+.install-step h2,
 .install-step h3 {
   margin: 0 0 10px;
   font-size: 20px;
@@ -2221,6 +2223,7 @@ html.js .reveal:not(.visible) {
     margin-bottom: 38px;
   }
 
+  .section-heading h1,
   .section-heading h2,
   .privacy-story h2,
   .download-copy h2 {
@@ -2459,6 +2462,7 @@ html[lang="zh-CN"] .hero h1 {
   line-height: 1.06;
 }
 
+html[lang="zh-CN"] .section-heading h1,
 html[lang="zh-CN"] .section-heading h2,
 html[lang="zh-CN"] .privacy-story h2,
 html[lang="zh-CN"] .download-copy h2 {
@@ -2468,6 +2472,7 @@ html[lang="zh-CN"] .download-copy h2 {
 
 html[lang="zh-CN"] .card-copy h3,
 html[lang="zh-CN"] .flow-step h3,
+html[lang="zh-CN"] .install-step h2,
 html[lang="zh-CN"] .install-step h3 {
   letter-spacing: -0.01em;
 }
