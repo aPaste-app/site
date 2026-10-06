@@ -80,6 +80,7 @@
       var stored = null;
       try { stored = localStorage.getItem("apaste-theme"); } catch (error) { stored = null; }
       document.documentElement.dataset.theme = stored ||
+        (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
       document.documentElement.classList.add("js");
     })();
   </script>
@@ -103,7 +104,6 @@
         <a href="index.html#privacy" data-zh="隐私" data-en="Privacy">Privacy</a>
         <a href="install.html" data-zh="安装" data-en="Install">Install</a>
         <a href="index.html#faq" data-zh="常见问题" data-en="FAQ">FAQ</a>
-        <a href="index.html#download" data-zh="下载" data-en="Download">Download</a>
       </nav>
 
       <div class="nav-actions">

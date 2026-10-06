@@ -531,6 +531,34 @@ const header = document.querySelector("#site-header");
 const updateHeader = () => header.classList.toggle("scrolled", window.scrollY > 12);
 window.addEventListener("scroll", updateHeader, { passive: true });
 updateHeader();
+const shortcutKeys = document.querySelectorAll(".hero-shortcut kbd");
+const stageEl = document.querySelector(".product-stage");
+
+function triggerShortcutDemo() {
+  if (!shortcutKeys.length) return;
+  shortcutKeys.forEach((k) => k.classList.add("key-pressed"));
+  stageEl?.classList.remove("stage-wake");
+  // force reflow
+  void stageEl?.offsetWidth;
+  stageEl?.classList.add("stage-wake");
+  setTimeout(() => {
+    shortcutKeys.forEach((k) => k.classList.remove("key-pressed"));
+  }, 260);
+}
+
+// Initial demo after initial load if hero is visible
+if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  setTimeout(triggerShortcutDemo, 1200);
+}
+
+document.querySelector(".hero-shortcut")?.addEventListener("click", triggerShortcutDemo);
+document.querySelectorAll(".bento-card").forEach((card) => {
+  card.addEventListener("mousemove", (event) => {
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty("--mouse-x", `${event.clientX - rect.left}px`);
+    card.style.setProperty("--mouse-y", `${event.clientY - rect.top}px`);
+  });
+});
 
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const revealElements = [...document.querySelectorAll(".reveal")];
